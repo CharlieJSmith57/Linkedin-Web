@@ -1,0 +1,29 @@
+# Credentials — never commit
+config.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Data — local only
+data/network_master.xlsx
+data/snapshots/
+data/logs/
+data/csv_inbox/
+
+# Keep placeholder JSON tracked
+!docs/data/network.json
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp

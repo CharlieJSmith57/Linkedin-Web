@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Network Graph</title>
+<style>
+/* ── Reset & base ──────────────────────────────────────────────────────── */
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #F7F7F5;
+  --bg-panel:  #FFFFFF;
+  --bg-hover:  #F0F0ED;
+  --bg-active: #E8EEF7;
+  --border:    #E2E2DE;
+  --border-md: #C8C8C3;
+  --text-1:    #1A1A18;
+  --text-2:    #5C5C58;
+  --text-3:    #9A9A95;
+  --blue:      #1D6FC4;
+  --blue-lt:   #E6EFF9;
+  --amber:     #B07000;
+  --amber-lt:  #FEF3DC;
+  --green:     #1A7240;
+  --green-lt:  #E4F3EC;
+  --red:       #B52B2B;
+  --font:      -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;color:var(--text-1)}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+#app{display:flex;height:100vh;position:relative}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+#sidebar{
+  width:256px;min-width:256px;
+  background:var(--bg-panel);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  z-index:10;
+}
+#sidebar-head{
+  padding:14px 16px 10px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+#sidebar-head h1{font-size:13.5px;font-weight:600;color:var(--text-1)}
+#sidebar-head p{font-size:11px;color:var(--text-3);margin-top:1px}
+
+.sec-label{
+  font-size:10px;font-weight:600;letter-spacing:.07em;
+  color:var(--text-3);padding:10px 16px 4px;
+  text-transform:uppercase;flex-shrink:0;
+}
+
+/* view buttons */
+.vbtn{
+  display:flex;align-items:center;gap:8px;
+  padding:6px 14px;font-size:12.5px;
+  color:var(--text-2);cursor:pointer;
+  border:none;background:none;width:100%;text-align:left;
+  transition:background .12s;
+}
+.vbtn:hover{background:var(--bg-hover)}
+.vbtn.active{background:var(--bg-active);color:var(--text-1);font-weight:500}
+.vdot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* search */
+.srch{padding:6px 12px;flex-shrink:0}
+.srch input{
+  width:100%;padding:5px 9px;font-size:12px;
+  background:var(--bg-hover);border:1px solid var(--border);
+  border-radius:6px;outline:none;color:var(--text-1);
+}
+.srch input:focus{border-color:var(--blue)}
+
+/* list */
+#conn-list{flex:1;overflow-y:auto;min-height:0}
+.ci{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 12px;cursor:pointer;
+  border-bottom:1px solid var(--border);
+  transition:background .1s;
+}
+.ci:hover{background:var(--bg-hover)}
+.ci.sel{background:var(--bg-active)}
+.av{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:9.5px;font-weight:600;flex-shrink:0;
+}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:12px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-sub{font-size:10.5px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ci-disc{font-size:9.5px;color:var(--text-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-style:italic}
+
+/* ── Canvas area ───────────────────────────────────────────────────────── */
+#canvas-area{flex:1;position:relative;overflow:hidden}
+#net-canvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* ── Top bar ───────────────────────────────────────────────────────────── */
+#topbar{
+  position:absolute;top:0;left:0;right:0;height:38px;
+  background:var(--bg-panel);border-bottom:1px solid var(--border);
+  display:flex;align-items:center;padding:0 12px;gap:10px;z-index:3;
+}
+#topbar label{font-size:11px;color:var(--text-3)}
+#overlap-sel{
+  font-size:11.5px;padding:3px 7px;
+  background:var(--bg-hover);border:1px solid var(--border);
+  border-radius:5px;color:var(--text-1);outline:none;max-width:180px;
+}
+#tb-right{margin-left:auto;display:flex;align-items:center;gap:6px}
+#data-stamp{font-size:10.5px;color:var(--text-3)}
+.tb-btn{
+  font-size:11px;padding:3px 8px;border-radius:5px;
+  background:var(--bg-hover);border:1px solid var(--border);
+  cursor:pointer;color:var(--text-2);
+}
+.tb-btn:hover{border-color:var(--border-md)}
+
+/* ── Bottom toolbar ────────────────────────────────────────────────────── */
+#toolbar{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  display:flex;gap:4px;
+  background:var(--bg-panel);
+  border:1px solid var(--border);border-radius:8px;
+  padding:5px 6px;z-index:4;box-shadow:0 2px 8px rgba(0,0,0,.07);
+}
+.tl-btn{
+  font-size:11.5px;padding:4px 10px;border-radius:5px;
+  background:none;border:none;cursor:pointer;
+  color:var(--text-2);transition:background .12s;
+}
+.tl-btn:hover{background:var(--bg-hover)}
+.tl-btn.on{background:var(--bg-active);color:var(--text-1);font-weight:500}
+.tl-sep{width:1px;background:var(--border);margin:2px 2px}
+
+/* ── Group view ────────────────────────────────────────────────────────── */
+#group-view{
+  position:absolute;inset:0;top:38px;
+  overflow-y:auto;display:none;padding:20px 24px 80px;
+}
+#group-view.on{display:block}
+.grp{
+  background:var(--bg-panel);border:1px solid var(--border);
+  border-radius:10px;margin-bottom:14px;overflow:hidden;
+}
+.grp-head{
+  padding:12px 14px;cursor:pointer;
+  display:flex;align-items:center;gap:10px;
+  border-bottom:1px solid var(--border);
+}
+.grp-head:hover{background:var(--bg-hover)}
+.grp-swatch{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.grp-name{font-size:13px;font-weight:500}
+.grp-count{font-size:11px;color:var(--text-3);margin-left:auto}
+.grp-chev{font-size:11px;color:var(--text-3);transition:transform .2s}
+.grp-chev.open{transform:rotate(90deg)}
+.grp-body{padding:10px 14px 14px;display:none}
+.grp-body.open{display:block}
+
+/* tiers */
+.tier{margin-bottom:10px}
+.tier-row{
+  display:flex;align-items:center;gap:6px;
+  margin-bottom:5px;
+}
+.tier-label{font-size:9.5px;color:var(--text-3);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.tier-line{flex:1;height:1px;background:var(--border)}
+.tier-people{display:flex;flex-wrap:wrap;gap:5px}
+
+.chip{
+  display:flex;align-items:center;gap:4px;
+  background:var(--bg-hover);border:1px solid var(--border);
+  border-radius:16px;padding:2px 7px 2px 2px;
+  font-size:11px;cursor:pointer;transition:border-color .1s;
+}
+.chip:hover{border-color:var(--border-md)}
+.chip-av{
+  width:17px;height:17px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:7px;font-weight:600;flex-shrink:0;
+}
+.chip-disc{font-size:9px;color:var(--text-3);margin-left:2px}
+
+/* ambiguity banner */
+.amb{
+  font-size:10.5px;color:var(--amber);
+  background:var(--amber-lt);border:1px solid #E8C96D;
+  border-radius:6px;padding:5px 8px;margin-bottom:8px;
+}
+
+/* ── Detail panel ──────────────────────────────────────────────────────── */
+#detail{
+  position:absolute;right:0;top:0;bottom:0;width:288px;
+  background:var(--bg-panel);border-left:1px solid var(--border);
+  transform:translateX(100%);transition:transform .22s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;z-index:5;
+}
+#detail.open{transform:none}
+#det-close{
+  position:sticky;top:10px;float:right;margin:10px 10px 0 0;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--bg-hover);border:1px solid var(--border);
+  cursor:pointer;font-size:13px;display:flex;align-items:center;justify-content:center;
+  color:var(--text-3);z-index:2;
+}
+#det-close:hover{color:var(--text-1)}
+#det-body{padding:14px 16px 24px;clear:both}
+.det-av{
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:600;margin-bottom:9px;
+}
+.det-photo{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:9px}
+.det-name{font-size:14.5px;font-weight:600;margin-bottom:1px}
+.det-title{font-size:11.5px;color:var(--text-2);margin-bottom:2px}
+.det-disc{font-size:10.5px;color:var(--blue);margin-bottom:8px;font-style:italic}
+.det-meta{font-size:11px;color:var(--text-3);margin-bottom:10px;line-height:1.5}
+.det-section{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin:12px 0 6px;padding-bottom:3px;border-bottom:1px solid var(--border)}
+.job{padding:7px 0;border-bottom:1px solid var(--border)}
+.job:last-child{border:none}
+.job-co{font-size:12px;font-weight:500}
+.job-title{font-size:11px;color:var(--text-2);margin-top:1px}
+.job-disc{font-size:10px;color:var(--blue);margin-top:1px;font-style:italic}
+.job-dates{font-size:10px;color:var(--text-3);margin-top:2px}
+.badge-curr{display:inline-block;font-size:9px;padding:1px 5px;border-radius:8px;background:var(--green-lt);color:var(--green);margin-left:4px;vertical-align:middle}
+.badge-overlap{display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:2px 7px;border-radius:4px;background:var(--amber-lt);color:var(--amber);font-weight:500;margin-top:4px}
+.edu-entry{padding:5px 0;border-bottom:1px solid var(--border);font-size:11px}
+.edu-entry:last-child{border:none}
+.edu-school{font-weight:500}
+.edu-detail{font-size:10px;color:var(--text-3);margin-top:1px}
+.skill-list{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.skill-tag{font-size:10px;padding:2px 7px;border-radius:10px;background:var(--bg-hover);border:1px solid var(--border);color:var(--text-2)}
+
+/* ── Loading overlay ───────────────────────────────────────────────────── */
+#loading{
+  position:fixed;inset:0;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  z-index:100;
+}
+#loading h2{font-size:14px;font-weight:500;color:var(--text-2)}
+#loading p{font-size:11.5px;color:var(--text-3)}
+.spinner{
+  width:28px;height:28px;border:2.5px solid var(--border);
+  border-top-color:var(--blue);border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── Empty state ───────────────────────────────────────────────────────── */
+#empty{
+  position:absolute;inset:0;top:38px;
+  display:none;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;color:var(--text-3);
+}
+#empty.on{display:flex}
+#empty h3{font-size:13px;font-weight:500}
+#empty p{font-size:11.5px;max-width:280px;text-align:center;line-height:1.5}
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <h2>Loading your network...</h2>
+  <p id="loading-sub">Fetching network.json</p>
+</div>
+
+<div id="app" style="display:none">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="sidebar-head">
+      <h1>Network Graph</h1>
+      <p id="conn-sub">— connections</p>
+    </div>
+
+    <div class="sec-label">View</div>
+    <button class="vbtn active" id="btn-network"  onclick="switchView('network')">
+      <span class="vdot" style="background:#4A90D9"></span> Network web
+    </button>
+    <button class="vbtn" id="btn-company"  onclick="switchView('company')">
+      <span class="vdot" style="background:#3DAA6E"></span> Group by company
+    </button>
+    <button class="vbtn" id="btn-industry" onclick="switchView('industry')">
+      <span class="vdot" style="background:#C07830"></span> Group by industry
+    </button>
+    <button class="vbtn" id="btn-school"   onclick="switchView('school')">
+      <span class="vdot" style="background:#9058C8"></span> Group by school
+    </button>
+    <button class="vbtn" id="btn-title"    onclick="switchView('title')">
+      <span class="vdot" style="background:#C83050"></span> Group by discipline
+    </button>
+
+    <div class="sec-label">Filter</div>
+    <div class="srch">
+      <input id="srch" type="text" placeholder="Search name, company, discipline…"
+             oninput="onSearch(this.value)">
+    </div>
+
+    <div class="sec-label">Connections</div>
+    <div id="conn-list"></div>
+  </div>
+
+  <!-- CANVAS -->
+  <div id="canvas-area">
+    <div id="topbar">
+      <label>Highlight overlaps with:</label>
+      <select id="overlap-sel" onchange="setOverlap(this.value)">
+        <option value="">— none —</option>
+      </select>
+      <div id="tb-right">
+        <span id="data-stamp"></span>
+        <button class="tb-btn" onclick="exportCompanyList()" title="Copy company list for Claude to categorize">
+          📋 Company list
+        </button>
+      </div>
+    </div>
+
+    <canvas id="net-canvas" style="position:absolute;top:38px;left:0;right:0;bottom:0;width:100%;"></canvas>
+
+    <div id="group-view">
+      <div id="grp-content"></div>
+    </div>
+
+    <div id="empty">
+      <h3>No connections yet</h3>
+      <p>Run <code>pipeline.py</code> and <code>export_to_json.py</code>, then push to GitHub Pages.</p>
+    </div>
+
+    <div id="toolbar">
+      <button class="tl-btn" onclick="doZoom(1.2)">＋</button>
+      <button class="tl-btn" onclick="doZoom(1/1.2)">－</button>
+      <button class="tl-btn" onclick="resetView()">Reset</button>
+      <div class="tl-sep"></div>
+      <button class="tl-btn on" id="tl-labels" onclick="toggleLabels()">Labels</button>
+      <button class="tl-btn" id="tl-photos" onclick="togglePhotos()">Photos</button>
+      <div class="tl-sep"></div>
+      <button class="tl-btn" onclick="toggleLinkType('company')"  id="tl-co-links">Co-worker links</button>
+      <button class="tl-btn" onclick="toggleLinkType('overlap')"  id="tl-ov-links">Alumni links</button>
+    </div>
+  </div>
+
+  <!-- DETAIL -->
+  <div id="detail">
+    <div id="det-close" onclick="closeDetail()">✕</div>
+    <div id="det-body"></div>
+  </div>
+</div>
+
+<!-- D3 force layout -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script>
+'use strict';
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  DATA LAYER
+// ═══════════════════════════════════════════════════════════════════════════
+
+let ALL = [];          // full connection list from network.json
+let FILTERED = [];     // after search filter
+let generatedAt = '';
+
+const DATA_URL = './data/network.json';
+
+async function loadData() {
+  setLoading('Fetching network.json…');
+  try {
+    const res = await fetch(DATA_URL + '?v=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const payload = await res.json();
+
+    ALL = payload.connections || [];
+    generatedAt = payload.generated || '';
+
+    setLoading('Building color map…');
+    ALL.forEach(c => companyColor(c.current_company));
+
+    setLoading('Rendering…');
+    await new Promise(r => requestAnimationFrame(r));
+
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('app').style.display = 'flex';
+
+    FILTERED = [...ALL];
+    init();
+  } catch(e) {
+    document.getElementById('loading-sub').textContent =
+      'Error loading data: ' + e.message + ' — check the console.';
+    console.error(e);
+  }
+}
+
+function setLoading(msg) {
+  document.getElementById('loading-sub').textContent = msg;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  COLOUR PALETTE
+// ═══════════════════════════════════════════════════════════════════════════
+
+const PALETTE = [
+  {bg:'#E6F0FB',text:'#124A8C',dot:'#1D6FC4'},
+  {bg:'#E4F3EC',text:'#145A32',dot:'#1A7240'},
+  {bg:'#FEF3DC',text:'#7A4800',dot:'#C07830'},
+  {bg:'#F3EAFE',text:'#4A2080',dot:'#7040B8'},
+  {bg:'#FDEAEA',text:'#7A1A1A',dot:'#B52B2B'},
+  {bg:'#E8F8F4',text:'#0C5044',dot:'#0E7060'},
+  {bg:'#FFF0E6',text:'#7A3000',dot:'#C05010'},
+  {bg:'#EAF0FF',text:'#1A2870',dot:'#2840A8'},
+  {bg:'#F5EAF8',text:'#5A1460',dot:'#8A2090'},
+  {bg:'#ECFAE4',text:'#1A4A08',dot:'#2A7010'},
+];
+const coMap = {};
+let coIdx = 0;
+function companyColor(co) {
+  const key = (co||'').trim();
+  if (!coMap[key]) coMap[key] = PALETTE[coIdx++ % PALETTE.length];
+  return coMap[key];
+}
+function initials(c) {
+  return ((c.first||'')[0] + (c.last||'')[0]).toUpperCase();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════════════════════════
+
+let view       = 'network';
+let selectedId = null;
+let overlapId  = '';
+let srchQ      = '';
+let showLabels = true;
+let showPhotos = true;
+let showCoLinks = true;
+let showOvLinks = true;
+
+// Canvas transform
+let tx = 0, ty = 0, sc = 1;
+
+// D3 force
+let nodes = [], links = [], sim;
+let canW, canH;
+
+// Drag + pan state
+let dragNode = null, dragOff = {x:0,y:0};
+let panning = false, panStart = {x:0,y:0}, panOrig = {x:0,y:0};
+
+// Photo image cache: id → Image object
+const photoCache = {};
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════════════════
+
+function init() {
+  updateSub();
+  buildConnList();
+  buildOverlapSelect();
+  setDataStamp();
+
+  initNetwork();
+}
+
+function updateSub() {
+  document.getElementById('conn-sub').textContent =
+    FILTERED.length + ' connections';
+}
+
+function setDataStamp() {
+  if (!generatedAt) return;
+  const d = new Date(generatedAt);
+  document.getElementById('data-stamp').textContent =
+    'Updated ' + d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  SIDEBAR LIST
+// ═══════════════════════════════════════════════════════════════════════════
+
+function buildConnList() {
+  const el = document.getElementById('conn-list');
+  el.innerHTML = '';
+  FILTERED.forEach(c => {
+    const col = companyColor(c.current_company);
+    const div = document.createElement('div');
+    div.className = 'ci' + (c.id === selectedId ? ' sel' : '');
+    div.id = 'li-' + c.id;
+    div.onclick = () => selectNode(c.id);
+
+    // Avatar: photo or initials
+    const avHTML = (showPhotos && c.photo_url)
+      ? `<img src="${c.photo_url}" class="av" style="object-fit:cover" onerror="this.outerHTML=fallbackAv('${initials(c)}','${col.bg}','${col.text}')" width=26 height=26>`
+      : `<div class="av" style="background:${col.bg};color:${col.text}">${initials(c)}</div>`;
+
+    div.innerHTML = `
+      ${avHTML}
+      <div class="ci-info">
+        <div class="ci-name">${c.first} ${c.last}</div>
+        <div class="ci-sub">${c.current_company||'—'}</div>
+        <div class="ci-disc">${c.discipline||''}</div>
+      </div>`;
+    el.appendChild(div);
+  });
+}
+
+function fallbackAv(ini, bg, text) {
+  return `<div class="av" style="background:${bg};color:${text}">${ini}</div>`;
+}
+
+function buildOverlapSelect() {
+  const sel = document.getElementById('overlap-sel');
+  // clear except placeholder
+  while (sel.options.length > 1) sel.remove(1);
+  ALL.forEach(c => {
+    const o = new Option(`${c.first} ${c.last}`, c.id);
+    sel.appendChild(o);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  SEARCH
+// ═══════════════════════════════════════════════════════════════════════════
+
+function onSearch(q) {
+  srchQ = q.toLowerCase();
+  FILTERED = srchQ
+    ? ALL.filter(c =>
+        `${c.first} ${c.last} ${c.current_company} ${c.discipline} ${c.discipline_family} ${c.school} ${c.industry}`
+          .toLowerCase().includes(srchQ))
+    : [...ALL];
+  updateSub();
+  buildConnList();
+  if (view === 'network') {
+    rebuildNetwork();
+  } else {
+    buildGroupView(view);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  VIEW SWITCHING
+// ═══════════════════════════════════════════════════════════════════════════
+
+function switchView(v) {
+  view = v;
+  ['network','company','industry','school','title'].forEach(k => {
+    document.getElementById('btn-'+k).classList.toggle('active', k===v);
+  });
+
+  const canvas = document.getElementById('net-canvas');
+  const gv = document.getElementById('group-view');
+  const empty = document.getElementById('empty');
+
+  if (v === 'network') {
+    canvas.style.display = 'block';
+    gv.classList.remove('on');
+    empty.classList.remove('on');
+    if (FILTERED.length === 0) empty.classList.add('on');
+    drawNetwork();
+  } else {
+    canvas.style.display = 'none';
+    gv.classList.add('on');
+    empty.classList.remove('on');
+    buildGroupView(v);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  NETWORK (D3-FORCE + CANVAS)
+// ═══════════════════════════════════════════════════════════════════════════
+
+function initNetwork() {
+  const canvas = document.getElementById('net-canvas');
+  resizeCanvas();
+  window.addEventListener('resize', () => { resizeCanvas(); drawNetwork(); });
+
+  rebuildNetwork();
+
+  // Events
+  canvas.addEventListener('mousedown',  onMD);
+  canvas.addEventListener('mousemove',  onMV);
+  canvas.addEventListener('mouseup',    onMU);
+  canvas.addEventListener('click',      onCK);
+  canvas.addEventListener('wheel', e => {
+    e.preventDefault();
+    doZoom(e.deltaY < 0 ? 1.12 : 1/1.12);
+  }, { passive: false });
+}
+
+function resizeCanvas() {
+  const canvas = document.getElementById('net-canvas');
+  const area   = document.getElementById('canvas-area');
+  canW = area.clientWidth;
+  canH = area.clientHeight - 38; // subtract topbar
+  canvas.width  = canW;
+  canvas.height = canH;
+}
+
+function rebuildNetwork() {
+  const pool = FILTERED;
+  nodes = pool.map(c => ({
+    ...c,
+    x: Math.random() * canW,
+    y: Math.random() * canH,
+  }));
+
+  links = [];
+  const idxOf = {};
+  nodes.forEach((n, i) => idxOf[n.id] = i);
+
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j];
+      if (a.current_company && a.current_company === b.current_company) {
+        links.push({ source: i, target: j, type: 'company' });
+        continue;
+      }
+      const ovCos = getOverlapCompanies(a, b);
+      if (ovCos.length) {
+        links.push({ source: i, target: j, type: 'overlap', companies: ovCos });
+      }
+    }
+  }
+
+  if (sim) sim.stop();
+  sim = d3.forceSimulation(nodes)
+    .force('link', d3.forceLink(links).id((_, i) => i)
+      .distance(d => d.type === 'company' ? 70 : 150)
+      .strength(.35))
+    .force('charge', d3.forceManyBody().strength(-180))
+    .force('center', d3.forceCenter(canW / 2, canH / 2))
+    .force('collision', d3.forceCollide(24))
+    .on('tick', drawNetwork);
+}
+
+function drawNetwork() {
+  const canvas = document.getElementById('net-canvas');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canW, canH);
+  ctx.save();
+  ctx.translate(tx, ty);
+  ctx.scale(sc, sc);
+
+  const overlapNode = overlapId ? nodes.find(n => n.id === overlapId) : null;
+
+  // Precompute highlighted node IDs for performance
+  const highlighted = new Set();
+  if (overlapNode) {
+    highlighted.add(overlapId);
+    links.forEach(l => {
+      const ai = l.source.index ?? l.source;
+      const bi = l.target.index ?? l.target;
+      if (nodes[ai]?.id === overlapId || nodes[bi]?.id === overlapId) {
+        highlighted.add(nodes[ai]?.id);
+        highlighted.add(nodes[bi]?.id);
+      }
+    });
+  }
+
+  // Draw links
+  links.forEach(l => {
+    if (l.type === 'company' && !showCoLinks) return;
+    if (l.type === 'overlap' && !showOvLinks) return;
+
+    const ai = l.source.index ?? l.source;
+    const bi = l.target.index ?? l.target;
+    const a = nodes[ai], b = nodes[bi];
+    if (!a || !b) return;
+
+    const isHigh = overlapId
+      ? (highlighted.has(a.id) && highlighted.has(b.id))
+      : true;
+    const alpha = overlapId && !isHigh ? 0.08 : 1;
+
+    ctx.globalAlpha = alpha;
+    ctx.beginPath();
+    ctx.moveTo(a.x, a.y);
+    ctx.lineTo(b.x, b.y);
+
+    if (l.type === 'company') {
+      ctx.strokeStyle = isHigh ? 'rgba(29,111,196,.55)' : 'rgba(29,111,196,.18)';
+      ctx.lineWidth   = isHigh ? 1.5 : 0.8;
+      ctx.setLineDash([]);
+    } else {
+      ctx.strokeStyle = isHigh ? 'rgba(176,112,0,.6)' : 'rgba(176,112,0,.15)';
+      ctx.lineWidth   = isHigh ? 1.2 : 0.6;
+      ctx.setLineDash([4, 5]);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+  });
+
+  // Draw nodes
+  const R = 17;
+  nodes.forEach(n => {
+    const col = companyColor(n.current_company);
+    const isSel  = n.id === selectedId;
+    const isDim  = overlapId && !highlighted.has(n.id);
+    ctx.globalAlpha = isDim ? 0.15 : 1;
+
+    // Selection ring
+    if (isSel) {
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, R + 4, 0, Math.PI * 2);
+      ctx.strokeStyle = col.dot;
+      ctx.lineWidth = 2;
+      ctx.stroke();
+    }
+
+    // Circle
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, R, 0, Math.PI * 2);
+    ctx.fillStyle = col.bg;
+    ctx.fill();
+    ctx.strokeStyle = isSel ? col.dot : col.dot + '66';
+    ctx.lineWidth = isSel ? 1.5 : 0.8;
+    ctx.stroke();
+
+    // Photo or initials
+    const hasPhoto = showPhotos && n.photo_url;
+    if (hasPhoto) {
+      let img = photoCache[n.id];
+      if (!img) {
+        img = new Image();
+        img.src = n.photo_url;
+        img.onload = () => drawNetwork();
+        photoCache[n.id] = img;
+      }
+      if (img.complete && img.naturalWidth > 0) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, R - 1, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(img, n.x - R + 1, n.y - R + 1, (R - 1) * 2, (R - 1) * 2);
+        ctx.restore();
+      } else {
+        drawInitials(ctx, n, col, R);
+      }
+    } else {
+      drawInitials(ctx, n, col, R);
+    }
+
+    // Label
+    if (showLabels) {
+      ctx.fillStyle = isDim ? '#CCC' : '#777';
+      ctx.font = `10px ${getComputedStyle(document.body).fontFamily}`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'top';
+      ctx.fillText(`${n.first} ${n.last}`, n.x, n.y + R + 3);
+    }
+
+    ctx.globalAlpha = 1;
+  });
+
+  ctx.restore();
+}
+
+function drawInitials(ctx, n, col, R) {
+  ctx.fillStyle = col.text;
+  ctx.font = `600 9.5px system-ui`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(initials(n), n.x, n.y);
+}
+
+// ── Canvas interaction ────────────────────────────────────────────────────
+
+function canvasXY(e) {
+  const rect = document.getElementById('net-canvas').getBoundingClientRect();
+  return {
+    x: (e.clientX - rect.left - tx) / sc,
+    y: (e.clientY - rect.top  - ty) / sc,
+  };
+}
+
+function nodeAt(x, y) {
+  return nodes.find(n => Math.hypot(n.x - x, n.y - y) < 20) || null;
+}
+
+function onMD(e) {
+  const {x, y} = canvasXY(e);
+  const n = nodeAt(x, y);
+  if (n) {
+    dragNode = n;
+    dragOff = { x: n.x - x, y: n.y - y };
+    sim.alphaTarget(.05).restart();
+  } else {
+    panning = true;
+    panStart = { x: e.clientX, y: e.clientY };
+    panOrig  = { x: tx, y: ty };
+  }
+}
+
+function onMV(e) {
+  if (dragNode) {
+    const {x, y} = canvasXY(e);
+    dragNode.x = dragNode.fx = x + dragOff.x;
+    dragNode.y = dragNode.fy = y + dragOff.y;
+    drawNetwork();
+  } else if (panning) {
+    tx = panOrig.x + (e.clientX - panStart.x);
+    ty = panOrig.y + (e.clientY - panStart.y);
+    drawNetwork();
+  }
+}
+
+function onMU() {
+  if (dragNode) { dragNode.fx = null; dragNode.fy = null; sim.alphaTarget(0); }
+  dragNode = null;
+  panning  = false;
+}
+
+function onCK(e) {
+  const {x, y} = canvasXY(e);
+  const n = nodeAt(x, y);
+  if (n) selectNode(n.id);
+  else    closeDetail();
+}
+
+function doZoom(f) {
+  sc = Math.max(.2, Math.min(4, sc * f));
+  drawNetwork();
+}
+function resetView() { tx = 0; ty = 0; sc = 1; drawNetwork(); }
+function toggleLabels() {
+  showLabels = !showLabels;
+  const b = document.getElementById('tl-labels');
+  b.classList.toggle('on', showLabels);
+  b.textContent = showLabels ? 'Labels' : 'Labels off';
+  drawNetwork();
+}
+function togglePhotos() {
+  showPhotos = !showPhotos;
+  const b = document.getElementById('tl-photos');
+  b.classList.toggle('on', showPhotos);
+  drawNetwork(); buildConnList();
+}
+function toggleLinkType(type) {
+  if (type === 'company') {
+    showCoLinks = !showCoLinks;
+    document.getElementById('tl-co-links').classList.toggle('on', showCoLinks);
+  } else {
+    showOvLinks = !showOvLinks;
+    document.getElementById('tl-ov-links').classList.toggle('on', showOvLinks);
+  }
+  drawNetwork();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  NODE SELECTION + DETAIL PANEL
+// ═══════════════════════════════════════════════════════════════════════════
+
+function selectNode(id) {
+  selectedId = id;
+  const c = ALL.find(x => x.id === id);
+  if (!c) return;
+  buildConnList();
+  openDetail(c);
+  if (view === 'network') drawNetwork();
+}
+
+function openDetail(c) {
+  const col = companyColor(c.current_company);
+  const ovPerson = overlapId ? ALL.find(x => x.id === overlapId) : null;
+
+  // Avatar
+  let avHTML = (showPhotos && c.photo_url)
+    ? `<img class="det-photo" src="${c.photo_url}" onerror="this.style.display='none'">`
+    : `<div class="det-av" style="background:${col.bg};color:${col.text}">${initials(c)}</div>`;
+
+  // Employment history
+  let histHTML = '';
+  const hist = (c.history || []);
+  if (hist.length) {
+    hist.forEach(h => {
+      // Check tenure overlap with selected overlap person
+      let overlapHTML = '';
+      if (ovPerson && ovPerson.id !== c.id) {
+        const matches = (ovPerson.history || []).filter(oh =>
+          oh.company === h.company && dateOverlap(h.start, h.end, oh.start, oh.end)
+        );
+        if (matches.length) {
+          overlapHTML = `<div class="badge-overlap">⟷ Overlapped with ${ovPerson.first} ${ovPerson.last}</div>`;
+        }
+      }
+      histHTML += `
+        <div class="job">
+          <div class="job-co">${h.company||'—'}${h.current ? '<span class="badge-curr">Current</span>' : ''}</div>
+          <div class="job-title">${h.title||''}</div>
+          <div class="job-disc">${h.discipline||''}</div>
+          <div class="job-dates">${fmtDate(h.start)} – ${h.current ? 'Present' : fmtDate(h.end)}</div>
+          ${overlapHTML}
+        </div>`;
+    });
+  } else {
+    histHTML = '<p style="font-size:11px;color:var(--text-3)">No history yet — enricher will populate this over time.</p>';
+  }
+
+  // Education
+  let eduHTML = '';
+  const edu = c.education || [];
+  if (edu.length) {
+    edu.forEach(e => {
+      const yr = (e.start_year && e.end_year) ? `${e.start_year}–${e.end_year}`
+               : e.end_year ? `Graduated ${e.end_year}` : '';
+      eduHTML += `<div class="edu-entry">
+        <div class="edu-school">${e.school||'—'}</div>
+        <div class="edu-detail">${[e.degree, e.field, yr].filter(Boolean).join(' · ')}</div>
+      </div>`;
+    });
+  }
+
+  // Skills
+  let skillsHTML = '';
+  if ((c.skills || []).length) {
+    const tags = c.skills.map(s => `<span class="skill-tag">${s}</span>`).join('');
+    skillsHTML = `<div class="skill-list">${tags}</div>`;
+  }
+
+  document.getElementById('det-body').innerHTML = `
+    ${avHTML}
+    <div class="det-name">${c.first} ${c.last}</div>
+    <div class="det-title">${c.current_title||''}</div>
+    <div class="det-disc">${c.discipline||''} · ${c.seniority||''}</div>
+    <div class="det-meta">
+      ${c.location ? c.location + '<br>' : ''}
+      ${c.school   ? c.school   + '<br>' : ''}
+      ${c.industry ? 'Industry: ' + c.industry : ''}
+    </div>
+
+    <div class="det-section">Employment history</div>
+    ${histHTML}
+
+    ${edu.length ? `<div class="det-section">Education</div>${eduHTML}` : ''}
+    ${(c.skills||[]).length ? `<div class="det-section">Skills</div>${skillsHTML}` : ''}
+    ${c.summary ? `<div class="det-section">About</div><p style="font-size:11px;line-height:1.55;color:var(--text-2)">${c.summary}</p>` : ''}
+  `;
+
+  document.getElementById('detail').classList.add('open');
+}
+
+function closeDetail() {
+  selectedId = null;
+  document.getElementById('detail').classList.remove('open');
+  buildConnList();
+  if (view === 'network') drawNetwork();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  GROUP VIEW
+// ═══════════════════════════════════════════════════════════════════════════
+
+function buildGroupView(groupBy) {
+  const container = document.getElementById('grp-content');
+  container.innerHTML = '';
+
+  // Build groups
+  const groups = {};
+  FILTERED.forEach(c => {
+    let key = '';
+    if      (groupBy === 'company')  key = c.current_company || 'Unknown';
+    else if (groupBy === 'industry') key = c.industry || 'Unknown';
+    else if (groupBy === 'school')   key = c.school   || 'Unknown';
+    else if (groupBy === 'title')    key = c.discipline_family || 'Unknown';
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(c);
+  });
+
+  const sorted = Object.entries(groups).sort((a, b) => b[1].length - a[1].length);
+
+  sorted.forEach(([key, members], gi) => {
+    const col = companyColor(key);
+    const div = document.createElement('div');
+    div.className = 'grp';
+
+    const bodyId = `grp-body-${gi}`;
+    const chevId = `grp-chev-${gi}`;
+
+    let bodyHTML = '';
+    if (groupBy === 'company') {
+      bodyHTML = buildCompanyTiers(members, key);
+    } else {
+      // For non-company views: flat chip list, sorted by seniority then name
+      const sorted2 = [...members].sort((a, b) => {
+        const sa = seniorityRank(a.seniority);
+        const sb = seniorityRank(b.seniority);
+        if (sa !== sb) return sa - sb;
+        return (a.last||'').localeCompare(b.last||'');
+      });
+      bodyHTML = `<div class="tier-people">` +
+        sorted2.map(p => chipHTML(p)).join('') + `</div>`;
+    }
+
+    div.innerHTML = `
+      <div class="grp-head" onclick="toggleGrp('${bodyId}','${chevId}')">
+        <span class="grp-swatch" style="background:${col.dot}"></span>
+        <span class="grp-name">${key}</span>
+        <span class="grp-count">${members.length}</span>
+        <span class="grp-chev open" id="${chevId}">›</span>
+      </div>
+      <div class="grp-body open" id="${bodyId}">${bodyHTML}</div>`;
+
+    container.appendChild(div);
+  });
+}
+
+function toggleGrp(bodyId, chevId) {
+  document.getElementById(bodyId).classList.toggle('open');
+  document.getElementById(chevId).classList.toggle('open');
+}
+
+function buildCompanyTiers(members, company) {
+  const tiers = computeTiers(members);
+  const hasAmb = tiers.some(t => t.ambiguous);
+
+  let html = '';
+  if (hasAmb) {
+    html += `<div class="amb">⚠ Ordering uncertain for one or more tiers — drag to reorder coming soon.</div>`;
+  }
+
+  tiers.forEach((tier, i) => {
+    const chips = tier.people.map(p => chipHTML(p, true)).join('');
+    html += `
+      <div class="tier">
+        <div class="tier-row">
+          <span class="tier-label">${tier.label}</span>
+          <span class="tier-line"></span>
+        </div>
+        <div class="tier-people">${chips}</div>
+      </div>`;
+  });
+  return html;
+}
+
+function chipHTML(p, showDisc = false) {
+  const col = companyColor(p.current_company);
+  const disc = showDisc && p.discipline_specialty
+    ? `<span class="chip-disc">${p.discipline_specialty}</span>`
+    : showDisc && p.discipline_family
+    ? `<span class="chip-disc">${p.discipline_family}</span>`
+    : '';
+  return `<div class="chip" onclick="selectNode('${p.id}')">
+    <div class="chip-av" style="background:${col.bg};color:${col.text}">${initials(p)}</div>
+    <span>${p.first} ${p.last}</span>${disc}
+  </div>`;
+}
+
+// ── Tier computation ──────────────────────────────────────────────────────
+
+// Ordered tier rules using the full taxonomy seniority labels
+const TIER_ORDER = [
+  { label: 'Executive / C-Suite',   match: ['C-Suite', 'Executive', 'Fellow / Distinguished', 'Partner / Principal (Consulting)'] },
+  { label: 'VP',                    match: ['EVP / SVP', 'VP', 'AVP'] },
+  { label: 'Director',              match: ['Director'] },
+  { label: 'Group Manager / Dept Head', match: ['Group Manager / Department Head'] },
+  { label: 'Manager / Lead',        match: ['Manager', 'Lead Engineer', 'Principal Engineer'] },
+  { label: 'Senior',                match: ['Senior'] },
+  { label: 'Project / Commissioning', match: ['Project Engineer', 'Commissioning Eng'] },
+  { label: 'Mid-level',             match: ['Mid-level', 'Engineer'] },
+  { label: 'Entry-level',           match: ['Entry-level', 'Intern / Co-op'] },
+  { label: 'Technician / Designer', match: ['Technician'] },
+];
+
+function computeTiers(members) {
+  const placed = new Set();
+  const tiers  = [];
+
+  TIER_ORDER.forEach(rule => {
+    const people = members.filter(m =>
+      !placed.has(m.id) && rule.match.includes(m.seniority)
+    );
+    if (people.length) {
+      // Within each tier, sub-sort by discipline_family then name for readability
+      people.sort((a, b) => {
+        const df = (a.discipline_family||'').localeCompare(b.discipline_family||'');
+        if (df !== 0) return df;
+        return (a.last||'').localeCompare(b.last||'');
+      });
+      people.forEach(m => placed.add(m.id));
+      tiers.push({ label: rule.label, people, ambiguous: false });
+    }
+  });
+
+  // Unranked catch-all
+  const unranked = members.filter(m => !placed.has(m.id));
+  if (unranked.length) {
+    tiers.push({ label: 'Other (drag to reorder)', people: unranked, ambiguous: true });
+  }
+
+  return tiers;
+}
+
+// Numeric rank for non-company group sorting
+function seniorityRank(s) {
+  const order = [
+    'C-Suite','Fellow / Distinguished','Partner / Principal (Consulting)',
+    'EVP / SVP','VP','AVP','Director',
+    'Group Manager / Department Head','Manager','Lead Engineer','Principal Engineer',
+    'Senior','Project Engineer','Commissioning Eng',
+    'Mid-level','Engineer','Entry-level','Intern / Co-op','Technician','Unknown'
+  ];
+  const i = order.indexOf(s);
+  return i === -1 ? 99 : i;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  OVERLAP HIGHLIGHT
+// ═══════════════════════════════════════════════════════════════════════════
+
+function setOverlap(id) {
+  overlapId = id;
+  if (view === 'network') drawNetwork();
+  if (selectedId) {
+    const c = ALL.find(x => x.id === selectedId);
+    if (c) openDetail(c);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  EXPORT COMPANY LIST (for Claude to categorize)
+// ═══════════════════════════════════════════════════════════════════════════
+
+function exportCompanyList() {
+  const companies = [...new Set(
+    ALL.flatMap(c => (c.history || []).map(h => h.company).concat(c.current_company))
+       .filter(Boolean)
+  )].sort();
+
+  const text = companies.join(', ');
+  navigator.clipboard.writeText(text).then(() => {
+    alert(`${companies.length} company names copied to clipboard.\n\nPaste into Claude with:\n"Categorize these by industry and return {\"Company\": \"Industry\"} JSON."`);
+  }).catch(() => {
+    prompt('Copy this list and send it to Claude:', text);
+  });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  HELPERS
+// ═══════════════════════════════════════════════════════════════════════════
+
+function fmtDate(d) {
+  if (!d) return '—';
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+
+function getOverlapCompanies(a, b) {
+  const res = [];
+  (a.history || []).forEach(ah => {
+    (b.history || []).forEach(bh => {
+      if (ah.company === bh.company && dateOverlap(ah.start, ah.end, bh.start, bh.end)) {
+        if (!res.includes(ah.company)) res.push(ah.company);
+      }
+    });
+  });
+  return res;
+}
+
+function dateOverlap(s1, e1, s2, e2) {
+  const far = '2100-01-01';
+  const d = x => new Date((x || far) + 'T00:00:00');
+  return d(s1) <= d(e2) && d(s2) <= d(e1);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+//  BOOT
+// ═══════════════════════════════════════════════════════════════════════════
+loadData();
+</script>
+</body>
+</html>

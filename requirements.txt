@@ -1,0 +1,14 @@
+# linkedin-network pipeline requirements
+# Tested on Python 3.13
+
+# LinkedIn unofficial API
+linkedin-api==2.1.1
+
+# Excel read/write
+openpyxl==3.1.2
+
+# HTTP — pin to avoid Python 3.13 breakage
+requests==2.31.0
+
+# Schedule (fallback in-process scheduler)
+schedule==1.2.1
