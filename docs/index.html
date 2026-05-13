@@ -410,12 +410,12 @@ function buildConnList(){
     div.onclick=()=>selectNode(c.id);
     const pe = certBadges(c);
     div.innerHTML=`
-      <div class="av" style="background:${col.bg};color:${col.text}">${initials(c)}</div>
+      <div class="av" style="background:${col.bg};color:${col.text}">${initials(c)}<\/div>
       <div class="ci-info">
-        <div class="ci-name">${c.first} ${c.last}${pe}</div>
-        <div class="ci-sub">${c.current_company||'—'}</div>
-        <div class="ci-disc">${c.discipline||''}</div>
-      </div>`;
+        <div class="ci-name">${c.first} ${c.last}${pe}<\/div>
+        <div class="ci-sub">${c.current_company||'—'}<\/div>
+        <div class="ci-disc">${c.discipline||''}<\/div>
+      <\/div>`;
     el.appendChild(div);
   });
 }
@@ -601,46 +601,46 @@ function openDetail(c){
     let ovHTML='';
     if(ovP&&ovP.id!==c.id){
       const m=(ovP.history||[]).filter(oh=>oh.company===h.company&&dateOverlap(h.start,h.end,oh.start,oh.end));
-      if(m.length)ovHTML=`<div class="badge-overlap">⟷ Overlapped with ${ovP.first} ${ovP.last}</div>`;
+      if(m.length)ovHTML=`<div class="badge-overlap">⟷ Overlapped with ${ovP.first} ${ovP.last}<\/div>`;
     }
     histHTML+=`<div class="job">
-      <div class="job-co">${h.company||'—'}${h.current?'<span class="badge-curr">Current</span>':''}</div>
-      <div class="job-title">${h.title||''}</div>
-      <div class="job-disc">${h.discipline||''}</div>
-      <div class="job-dates">${fmtDate(h.start)} – ${h.current?'Present':fmtDate(h.end)}</div>
-      ${ovHTML}</div>`;
+      <div class="job-co">${h.company||'—'}${h.current?'<span class="badge-curr">Current<\/span>':''}<\/div>
+      <div class="job-title">${h.title||''}<\/div>
+      <div class="job-disc">${h.discipline||''}<\/div>
+      <div class="job-dates">${fmtDate(h.start)} – ${h.current?'Present':fmtDate(h.end)}<\/div>
+      ${ovHTML}<\/div>`;
   });
 
   let eduHTML=(c.education||[]).map(e=>{
     const yr=(e.start_year&&e.end_year)?`${e.start_year}–${e.end_year}`:e.end_year?`Graduated ${e.end_year}`:'';
     return`<div class="edu-entry" style="padding:5px 0;border-bottom:1px solid var(--border);font-size:11px">
-      <div style="font-weight:500">${e.school||'—'}</div>
-      <div style="font-size:10px;color:var(--text-3);margin-top:1px">${[e.degree,e.field,yr].filter(Boolean).join(' · ')}</div>
-    </div>`;
+      <div style="font-weight:500">${e.school||'—'}<\/div>
+      <div style="font-size:10px;color:var(--text-3);margin-top:1px">${[e.degree,e.field,yr].filter(Boolean).join(' · ')}<\/div>
+    <\/div>`;
   }).join('');
 
-  let skillsHTML=(c.skills||[]).length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${c.skills.map(s=>`<span style="font-size:10px;padding:2px 7px;border-radius:10px;background:var(--bg-hover);border:1px solid var(--border)">${s}</span>`).join('')}</div>`:'';
+  let skillsHTML=(c.skills||[]).length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${c.skills.map(s=>`<span style="font-size:10px;padding:2px 7px;border-radius:10px;background:var(--bg-hover);border:1px solid var(--border)">${s}<\/span>`).join('')}<\/div>`:'';
 
   // Reassignment UI — all unique companies
   const allCos=[...new Set(ALL.map(x=>x.current_company).filter(Boolean))].sort();
-  const coOpts=allCos.map(co=>`<option value="${co}" ${co===c.current_company?'selected':''}>${co}</option>`).join('');
+  const coOpts=allCos.map(co=>`<option value="${co}" ${co===c.current_company?'selected':''}>${co}<\/option>`).join('');
 
   document.getElementById('det-body').innerHTML=`
-    <div class="det-av" style="background:${col.bg};color:${col.text}">${initials(c)}</div>
-    <div class="det-name">${c.first} ${c.last}${peHTML}</div>
-    <div class="det-title">${c.current_title||''}</div>
-    <div class="det-disc">${c.discipline||''} · ${c.seniority||''}</div>
-    <div class="det-meta">${c.location?c.location+'<br>':''}${c.school?c.school+'<br>':''}${c.industry?'Industry: '+c.industry:''}</div>
-    <div class="det-section">Employment history</div>
-    ${histHTML||'<p style="font-size:11px;color:var(--text-3)">No history yet.</p>'}
-    ${eduHTML?`<div class="det-section">Education</div>${eduHTML}`:''}
-    ${skillsHTML?`<div class="det-section">Skills</div>${skillsHTML}`:''}
-    ${c.summary?`<div class="det-section">About</div><p style="font-size:11px;line-height:1.55;color:var(--text-2)">${c.summary}</p>`:''}
+    <div class="det-av" style="background:${col.bg};color:${col.text}">${initials(c)}<\/div>
+    <div class="det-name">${c.first} ${c.last}${peHTML}<\/div>
+    <div class="det-title">${c.current_title||''}<\/div>
+    <div class="det-disc">${c.discipline||''} · ${c.seniority||''}<\/div>
+    <div class="det-meta">${c.location?c.location+'<br>':''}${c.school?c.school+'<br>':''}${c.industry?'Industry: '+c.industry:''}<\/div>
+    <div class="det-section">Employment history<\/div>
+    ${histHTML||'<p style="font-size:11px;color:var(--text-3)">No history yet.<\/p>'}
+    ${eduHTML?`<div class="det-section">Education<\/div>${eduHTML}`:''}
+    ${skillsHTML?`<div class="det-section">Skills<\/div>${skillsHTML}`:''}
+    ${c.summary?`<div class="det-section">About<\/div><p style="font-size:11px;line-height:1.55;color:var(--text-2)">${c.summary}<\/p>`:''}
     <div class="det-reassign">
-      <div class="det-section" style="margin-top:0">Reassign company</div>
-      <select id="reassign-sel">${coOpts}</select>
-      <button onclick="reassignPerson('${c.id}')">Save reassignment</button>
-    </div>`;
+      <div class="det-section" style="margin-top:0">Reassign company<\/div>
+      <select id="reassign-sel">${coOpts}<\/select>
+      <button onclick="reassignPerson('${c.id}')">Save reassignment<\/button>
+    <\/div>`;
 
   document.getElementById('detail').classList.add('open');
 }
@@ -692,20 +692,20 @@ function buildGroupView(groupBy){
         const d=seniorityRank(a.seniority)-seniorityRank(b.seniority);
         return d|||(a.last||'').localeCompare(b.last||'');
       });
-      bodyHTML=`<div class="tier-people">${sorted.map(p=>chipHTML(p,false)).join('')}</div>`;
+      bodyHTML=`<div class="tier-people">${sorted.map(p=>chipHTML(p,false)).join('')}<\/div>`;
     }
 
     div.innerHTML=`
       <div class="grp-head" onclick="toggleGrp('${bodyId}','${chevId}')">
-        <span class="grp-swatch" style="background:${col.dot}"></span>
-        <span class="grp-name">${key}</span>
-        <span class="grp-count">${members.length}</span>
-        <span class="grp-chev open" id="${chevId}">›</span>
-      </div>
+        <span class="grp-swatch" style="background:${col.dot}"><\/span>
+        <span class="grp-name">${key}<\/span>
+        <span class="grp-count">${members.length}<\/span>
+        <span class="grp-chev open" id="${chevId}">›<\/span>
+      <\/div>
       <div class="grp-body open" id="${bodyId}">
-        ${groupBy==='company'?`<div class="grp-actions"><button class="grp-act-btn" onclick="event.stopPropagation();showMergePanelFor('${key}')">⊕ Merge into…</button></div>`:''}
+        ${groupBy==='company'?`<div class="grp-actions"><button class="grp-act-btn" onclick="event.stopPropagation();showMergePanelFor('${key}')">⊕ Merge into…<\/button><\/div>`:''}
         ${bodyHTML}
-      </div>`;
+      <\/div>`;
     container.appendChild(div);
 
     if(groupBy==='company'){
@@ -726,18 +726,18 @@ function buildCompanyTiersHTML(members, company, gi){
   }
 
   const hasAmb=tiers.some(t=>t.ambiguous);
-  let html=hasAmb?`<div class="amb">⚠ Ordering uncertain — drag tiers to reorder</div>`:'';
+  let html=hasAmb?`<div class="amb">⚠ Ordering uncertain — drag tiers to reorder<\/div>`:'';
 
   tiers.forEach((tier,i)=>{
     const chips=tier.people.map(p=>chipHTML(p,true)).join('');
     html+=`<div class="tier" draggable="true" data-tier-label="${tier.label}" data-company="${company}">
       <div class="tier-row">
-        <span class="tier-handle" title="Drag to reorder">⠿</span>
-        <span class="tier-label">${tier.label}</span>
-        <span class="tier-line"></span>
-      </div>
-      <div class="tier-people">${chips}</div>
-    </div>`;
+        <span class="tier-handle" title="Drag to reorder">⠿<\/span>
+        <span class="tier-label">${tier.label}<\/span>
+        <span class="tier-line"><\/span>
+      <\/div>
+      <div class="tier-people">${chips}<\/div>
+    <\/div>`;
   });
   return html;
 }
@@ -782,12 +782,12 @@ function attachTierDragEvents(grpEl, company){
 
 function chipHTML(p,showDisc){
   const col=companyColor(p.current_company);
-  const disc=showDisc&&(p.discipline_specialty||p.discipline_family)?`<span class="chip-disc">${p.discipline_specialty||p.discipline_family}</span>`:'';
+  const disc=showDisc&&(p.discipline_specialty||p.discipline_family)?`<span class="chip-disc">${p.discipline_specialty||p.discipline_family}<\/span>`:'';
   const pe=certBadges(p);
   return`<div class="chip" onclick="selectNode('${p.id}')">
-    <div class="chip-av" style="background:${col.bg};color:${col.text}">${initials(p)}</div>
-    <span>${p.first} ${p.last}${pe}</span>${disc}
-  </div>`;
+    <div class="chip-av" style="background:${col.bg};color:${col.text}">${initials(p)}<\/div>
+    <span>${p.first} ${p.last}${pe}<\/span>${disc}
+  <\/div>`;
 }
 
 function toggleGrp(bodyId,chevId){document.getElementById(bodyId).classList.toggle('open');document.getElementById(chevId).classList.toggle('open');}
@@ -848,22 +848,22 @@ function showNotifPanel(){
   const pending=o.pending||[];
   const body=document.getElementById('notif-body');
   if(pending.length===0){
-    body.innerHTML=`<div class="notif-empty">No pending changes — you're all caught up.</div>`;
+    body.innerHTML=`<div class="notif-empty">No pending changes — you're all caught up.<\/div>`;
   } else {
     body.innerHTML=pending.map((p,i)=>`
       <div class="notif-item" id="notif-${i}">
-        <div class="notif-name">${p.first} ${p.last}</div>
+        <div class="notif-name">${p.first} ${p.last}<\/div>
         <div class="notif-change">
-          <strong>${p.change_type}</strong><br>
-          ${p.old_company?`Was at: <em>${p.old_company}</em><br>`:''}
-          Now at: <em>${p.new_company}</em><br>
-          <span style="font-size:10px;color:var(--text-3)">Flagged: ${p.flagged_reason}</span>
-        </div>
+          <strong>${p.change_type}<\/strong><br>
+          ${p.old_company?`Was at: <em>${p.old_company}<\/em><br>`:''}
+          Now at: <em>${p.new_company}<\/em><br>
+          <span style="font-size:10px;color:var(--text-3)">Flagged: ${p.flagged_reason}<\/span>
+        <\/div>
         <div class="notif-actions">
-          <button class="notif-approve" onclick="resolveChange(${i},true)">✓ Approve</button>
-          <button class="notif-reject" onclick="resolveChange(${i},false)">✕ Reject</button>
-        </div>
-      </div>`).join('');
+          <button class="notif-approve" onclick="resolveChange(${i},true)">✓ Approve<\/button>
+          <button class="notif-reject" onclick="resolveChange(${i},false)">✕ Reject<\/button>
+        <\/div>
+      <\/div>`).join('');
   }
   document.getElementById('notif-overlay').classList.add('on');
 }
@@ -904,7 +904,7 @@ function populateMergeSelects(){
   const cos=[...new Set(ALL.map(c=>c.current_company).filter(Boolean))].sort();
   ['merge-from','merge-to'].forEach(id=>{
     const sel=document.getElementById(id);
-    sel.innerHTML='<option value="">Select company…</option>'+cos.map(c=>`<option value="${c}">${c}</option>`).join('');
+    sel.innerHTML='<option value="">Select company…<\/option>'+cos.map(c=>`<option value="${c}">${c}<\/option>`).join('');
   });
 }
 
@@ -914,12 +914,12 @@ function renderMergeList(){
   const el=document.getElementById('merge-list');
   const entries=Object.entries(merges);
   el.innerHTML=entries.length===0
-    ?'<div style="font-size:11px;color:var(--text-3)">No merge rules yet.</div>'
+    ?'<div style="font-size:11px;color:var(--text-3)">No merge rules yet.<\/div>'
     :entries.map(([from,to])=>`
       <div class="merge-list-item">
-        <span><strong>${from}</strong> → ${to}</span>
-        <button onclick="removeMerge('${from}')">✕ Remove</button>
-      </div>`).join('');
+        <span><strong>${from}<\/strong> → ${to}<\/span>
+        <button onclick="removeMerge('${from}')">✕ Remove<\/button>
+      <\/div>`).join('');
 }
 
 function addMerge(){
@@ -988,10 +988,10 @@ function dateOverlap(s1,e1,s2,e2){const far='2100-01-01';const d=x=>new Date((x|
 function certBadges(c, fontSize=''){
   const fs=fontSize?`font-size:${fontSize};`:'';
   let html='';
-  if(c.is_pe) html+=`<span class="pe-badge" style="${fs}">PE</span>`;
+  if(c.is_pe) html+=`<span class="pe-badge" style="${fs}">PE<\/span>`;
   const certs=c.certifications||{};
   Object.entries(certs).forEach(([name,val])=>{
-    if(val) html+=`<span class="pe-badge" style="${fs}background:#F0F4E8;color:#3A5A10;border-color:#B8D080">${name}</span>`;
+    if(val) html+=`<span class="pe-badge" style="${fs}background:#F0F4E8;color:#3A5A10;border-color:#B8D080">${name}<\/span>`;
   });
   return html;
 }
