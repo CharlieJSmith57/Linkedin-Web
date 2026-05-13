@@ -16,7 +16,9 @@ before falling through to the generic "Electrical" bucket.
 """
 
 from __future__ import annotations
+import json
 import re
+from pathlib import Path
 
 
 # ── Helpers ────────────────────────────────────────────────────────────────────
@@ -183,49 +185,190 @@ DISCIPLINE_RULES: list[tuple[str, callable]] = [
 # ── SENIORITY RULES ────────────────────────────────────────────────────────────
 # Checked independently of discipline.
 # Ordered most-specific → least-specific.
+#
+# PE (Professional Engineer) is a CERTIFICATION, not a seniority level.
+# It is detected separately via the `is_pe` field in classify() and exposed
+# as a boolean for UI filtering — it does not affect seniority tier placement.
+#
+# EIT (Engineer in Training) IS its own tier — between Entry-level and Intern.
+#
+# Grade numbers (Engineer I/II/III/IV/V) get their own explicit tiers so
+# an "Engineer III" is never lumped with a "Senior Engineer".
 
 SENIORITY_RULES: list[tuple[str, callable]] = [
-    # Exact executive roles
-    ("Partner / Principal (Consulting)", lambda t: _any(t, ["partner", "principal consultant", "managing partner", "equity partner"])),
-    ("Fellow / Distinguished",           lambda t: _any(t, ["fellow", "distinguished engineer", "distinguished scientist", "ieee fellow"])),
-    ("C-Suite",                          lambda t: _any(t, ["chief", "ceo", "cto", "coo", "cfo", "cmo", "president", "founder"])),
 
-    # VP levels
+    # ── Must come FIRST — intern/EIT before anything else ─────────────────
+    # "intern" contains "in" which would otherwise match "principal "
+    ("Intern / Co-op",  lambda t: _any(t, [
+        "intern", "internship", "co-op", "coop", "co op",
+        "student engineer", "student worker", "student employee",
+        "graduate trainee", "graduate student",
+    ])),
+    ("EIT",             lambda t: _any(t, [
+        "engineer in training", "eit", "engineer-in-training",
+        "engineering intern", "engineering trainee",
+        "graduate engineer",   # common UK/AU title for new grads
+    ])),
+
+    # ── Executive ──────────────────────────────────────────────────────────
+    ("Partner / Principal (Consulting)", lambda t: _any(t, [
+        "managing partner", "equity partner", "principal consultant",
+    ]) or (_any(t, ["partner"]) and not _any(t, ["intern", "eit"]))),
+    ("Fellow / Distinguished",  lambda t: _any(t, [
+        "fellow", "distinguished engineer", "distinguished scientist", "ieee fellow",
+    ])),
+    ("C-Suite",                 lambda t: _any(t, [
+        "chief executive", "chief operating", "chief financial",
+        "chief technology", "chief marketing", "chief engineer",
+        "ceo", "coo", "cfo", "cto", "cmo", "president", "founder", "co-founder",
+    ])),
+
+    # ── VP ─────────────────────────────────────────────────────────────────
     ("EVP / SVP",   lambda t: _any(t, ["executive vice president", "evp", "senior vice president", "svp"])),
-    ("VP",          lambda t: _any(t, ["vice president", "vp "])),
+    ("VP",          lambda t: _any(t, ["vice president", " vp ", "vp,", "vp-", "vp of"])),
     ("AVP",         lambda t: _any(t, ["assistant vice president", "avp"])),
 
-    # Director levels
-    ("Director",    lambda t: _any(t, ["director", "managing director", " md,"])),
+    # ── Director ───────────────────────────────────────────────────────────
+    ("Director",    lambda t: _any(t, ["director", "managing director"])),
 
-    # Management
-    ("Group Manager / Department Head", lambda t: _any(t, ["group manager", "department head", "department manager", "division manager", "practice leader", "practice manager"])),
-    ("Manager",                          lambda t: _any(t, ["manager", "head of ", "team lead,"])),
+    # ── Management ─────────────────────────────────────────────────────────
+    ("Group Manager / Dept Head", lambda t: _any(t, [
+        "group manager", "department head", "department manager",
+        "division manager", "practice leader", "practice manager",
+    ])),
+    ("Manager",     lambda t: _any(t, ["manager", "head of ", "team lead,"])),
 
-    # Technical leadership
-    ("Principal Engineer",  lambda t: _any(t, ["principal engineer", "principal ", "staff engineer", "distinguished engineer"])),
-    ("Lead Engineer",       lambda t: _any(t, ["lead engineer", "engineering lead", "technical lead", "tech lead"])),
+    # ── Technical leadership ───────────────────────────────────────────────
+    ("Principal Engineer",  lambda t: _any(t, [
+        "principal engineer", "staff engineer", "distinguished engineer",
+        "principal ", "staff ",  # catches "Principal Structural Engineer" etc.
+    ]) and not _any(t, ["intern", "eit", "principal consultant", "managing partner"])),
+    ("Lead Engineer",       lambda t: _any(t, [
+        "lead engineer", "engineering lead", "technical lead", "tech lead",
+    ])),
 
-    # Seniority modifiers (checked before grade numbers)
-    ("Senior",      lambda t: _any(t, ["senior", "sr.", "sr ", " sr,", "level iii", "level 3", "grade iii", "grade 3", "iii,", " iii ", "pe,", " pe "])),
-    ("Mid-level",   lambda t: _any(t, ["level ii", "level 2", "grade ii", "grade 2", "ii,", " ii ", "engineer ii", "analyst ii"])),
-    ("Entry-level", lambda t: _any(t, ["level i,", "level 1,", "grade i,", "grade 1,", " i,", "engineer i,", "junior", "jr.", "jr ", "associate engineer", "entry"])),
+    # ── Numbered grade tiers (most specific — checked before Senior/Mid) ───
+    # Uses regex to catch both "Engineer III" at end-of-string and mid-title.
+    ("Engineer V",   lambda t: bool(re.search(r"(engineer|eng|analyst|scientist|designer).{0,6}\b(v|5)\b", _norm(t))) or
+                               bool(re.search(r"\b(level|grade|e)[ -]?(v|5)\b", _norm(t)))),
+    ("Engineer IV",  lambda t: bool(re.search(r"(engineer|eng|analyst|scientist|designer).{0,6}\b(iv|4)\b", _norm(t))) or
+                               bool(re.search(r"\b(level|grade|e)[ -]?(iv|4)\b", _norm(t)))),
+    ("Engineer III", lambda t: bool(re.search(r"(engineer|eng|analyst|scientist|designer).{0,6}\b(iii|3)\b", _norm(t))) or
+                               bool(re.search(r"\b(level|grade|e)[ -]?(iii|3)\b", _norm(t)))),
+    ("Engineer II",  lambda t: bool(re.search(r"(engineer|eng|analyst|scientist|designer).{0,6}\b(ii|2)\b", _norm(t))) or
+                               bool(re.search(r"\b(level|grade|e)[ -]?(ii|2)\b", _norm(t)))),
+    ("Engineer I",   lambda t: bool(re.search(r"(engineer|eng|analyst|scientist|designer).{0,6}\b(i|1)\b", _norm(t))) or
+                               bool(re.search(r"\b(level|grade|e)[ -]?(i|1)\b", _norm(t)))),
 
-    # Project-specific
-    ("Project Engineer",    lambda t: _any(t, ["project engineer"])),
-    ("Commissioning Eng",   lambda t: _any(t, ["commissioning engineer", "cx engineer", "startup engineer"])),
+    # ── Word-based seniority (after numbered grades) ───────────────────────
+    ("Senior",      lambda t: _any(t, [
+        "senior", "sr.", " sr ", "sr,",
+    ]) and not _any(t, ["intern", "eit"])),
 
-    # Interns / students
-    ("Intern / Co-op",      lambda t: _any(t, ["intern", "co-op", "coop", "student engineer", "graduate trainee"])),
+    ("Mid-level",   lambda t: _any(t, [
+        "associate engineer", "associate analyst",
+    ])),
 
-    # Technicians / drafters
-    ("Technician",          lambda t: _any(t, ["technician", "tech,", " tech ", "drafter", "designer,", "cad ", "cadd "])),
+    ("Entry-level", lambda t: _any(t, [
+        "junior", "jr.", " jr ", "jr,", "entry level", "entry-level",
+    ]) and not _any(t, ["intern", "eit"])),
 
-    # Catch-all for anyone who matched a discipline but no seniority
-    ("Engineer",            lambda t: _any(t, ["engineer", "scientist", "analyst", "developer", "consultant", "specialist", "architect", "designer"])),
+    # ── Project / Commissioning ────────────────────────────────────────────
+    ("Project Engineer",  lambda t: _any(t, ["project engineer"])),
+    ("Commissioning Eng", lambda t: _any(t, [
+        "commissioning engineer", "cx engineer", "startup engineer", "start-up engineer",
+    ])),
 
-    ("Unknown",             lambda t: True),
+    # ── Technicians / drafters ─────────────────────────────────────────────
+    ("Technician",  lambda t: _any(t, [
+        "technician", "drafter", "cad ", "cadd ",
+        "designer", "detailer",
+    ])),
+
+    # ── Catch-all — matched a discipline but no specific seniority ─────────
+    ("Engineer",    lambda t: _any(t, [
+        "engineer", "scientist", "analyst", "developer",
+        "consultant", "specialist", "architect",
+    ])),
+
+    ("Unknown",     lambda t: True),
 ]
+
+# ── PE certification detector ──────────────────────────────────────────────────
+# Returns True if the title suggests a PE license.
+# Used by classify() to set the `is_pe` boolean field.
+_PE_PATTERNS = re.compile(
+    r"(pe|p\.e\.|professional engineer|licensed engineer|registered engineer)",
+    re.IGNORECASE,
+)
+
+def detect_pe(raw_title: str) -> bool:
+    """Return True if the title contains a PE certification indicator."""
+    if not raw_title:
+        return False
+    return bool(_PE_PATTERNS.search(raw_title))
+
+
+# ── Custom taxonomy loader ────────────────────────────────────────────────────
+
+def _load_custom_taxonomy() -> dict:
+    """
+    Load custom_taxonomy.json from the data root defined in config.py.
+    Returns empty structure on any error so the built-in rules still work.
+    """
+    try:
+        # Import here to avoid circular imports at module load time
+        from config import CUSTOM_TAXONOMY_PATH
+        custom_path = CUSTOM_TAXONOMY_PATH
+    except Exception:
+        # Fallback if config isn't available (e.g. running taxonomy standalone)
+        custom_path = Path(__file__).parent / "data" / "custom_taxonomy.json"
+
+    try:
+        if custom_path.exists():
+            with open(custom_path, encoding="utf-8") as f:
+                data = json.load(f)
+            return data
+    except Exception as e:
+        print(f"[taxonomy] Warning: could not load custom_taxonomy.json: {e}")
+    return {}
+
+def _build_custom_rule(keywords: list[str]):
+    """Turn a list of keyword strings into a lambda matching any of them."""
+    kws = [k.lower() for k in keywords if isinstance(k, str) and not k.startswith("_")]
+    return lambda t: any(kw in _norm(t) for kw in kws)
+
+def _get_custom_rules() -> tuple[list, list, list]:
+    """
+    Returns (custom_discipline_rules, custom_seniority_rules, certifications).
+    custom_discipline_rules: [(label, fn), ...] — prepended to DISCIPLINE_RULES
+    custom_seniority_rules:  [(label, fn), ...] — prepended to SENIORITY_RULES
+    certifications:          [{name, fn}, ...]  — checked in classify()
+    """
+    data = _load_custom_taxonomy()
+
+    disc_rules = []
+    for entry in data.get("discipline_rules", []):
+        label = entry.get("label", "")
+        kws   = entry.get("keywords", [])
+        if label and kws:
+            disc_rules.append((label, _build_custom_rule(kws)))
+
+    seniority_rules = []
+    for entry in data.get("seniority_rules", []):
+        label = entry.get("label", "")
+        kws   = entry.get("keywords", [])
+        if label and kws:
+            seniority_rules.append((label, _build_custom_rule(kws)))
+
+    certs = []
+    for entry in data.get("certifications", []):
+        name = entry.get("name", "")
+        kws  = entry.get("keywords", [])
+        if name and kws:
+            certs.append({"name": name, "fn": _build_custom_rule(kws)})
+
+    return disc_rules, seniority_rules, certs
 
 
 # ── PUBLIC API ─────────────────────────────────────────────────────────────────
@@ -248,8 +391,14 @@ def classify(raw_title: str) -> dict[str, str]:
     if not raw_title or not raw_title.strip():
         return _make_result("Unknown", "Unknown")
 
+    # Load custom rules fresh each call so edits to custom_taxonomy.json
+    # are picked up without restarting the program.
+    # (Cached after first load for performance — restart to reload.)
+    custom_disc, custom_seniority, custom_certs = _get_custom_rules()
+
+    # Custom discipline rules are checked FIRST so they can override built-ins
     discipline = "Unknown"
-    for label, fn in DISCIPLINE_RULES:
+    for label, fn in custom_disc + DISCIPLINE_RULES:
         try:
             if fn(raw_title):
                 discipline = label
@@ -257,8 +406,9 @@ def classify(raw_title: str) -> dict[str, str]:
         except Exception:
             continue
 
+    # Custom seniority rules are checked FIRST
     seniority = "Unknown"
-    for label, fn in SENIORITY_RULES:
+    for label, fn in custom_seniority + SENIORITY_RULES:
         try:
             if fn(raw_title):
                 seniority = label
@@ -266,10 +416,21 @@ def classify(raw_title: str) -> dict[str, str]:
         except Exception:
             continue
 
-    return _make_result(discipline, seniority)
+    # Built-in PE detection
+    is_pe = detect_pe(raw_title)
+
+    # Custom certifications
+    certifications = {}
+    for cert in custom_certs:
+        try:
+            certifications[cert["name"]] = cert["fn"](raw_title)
+        except Exception:
+            certifications[cert["name"]] = False
+
+    return _make_result(discipline, seniority, is_pe, certifications)
 
 
-def _make_result(discipline: str, seniority: str) -> dict[str, str]:
+def _make_result(discipline: str, seniority: str, is_pe: bool = False, certifications: dict = None) -> dict:
     # Split "Family — Specialty" into parts
     if " — " in discipline:
         family, specialty = discipline.split(" — ", 1)
@@ -279,11 +440,13 @@ def _make_result(discipline: str, seniority: str) -> dict[str, str]:
     label = f"{seniority} · {discipline}" if specialty else f"{seniority} · {family}"
 
     return {
-        "discipline":          discipline,
-        "discipline_family":   family,
+        "discipline":           discipline,
+        "discipline_family":    family,
         "discipline_specialty": specialty,
-        "seniority":           seniority,
-        "label":               label,
+        "seniority":            seniority,
+        "is_pe":                is_pe,
+        "certifications":       certifications or {},
+        "label":                label,
     }
 
 
@@ -294,6 +457,9 @@ if __name__ == "__main__":
         "Staff Software Engineer, Embedded Systems",
         "VP of Infrastructure",
         "Civil Engineer III – Geotechnical",
+        "Civil Engineer II",
+        "Civil Engineer I",
+        "Engineer III",
         "Lead Commissioning Engineer",
         "Robotics Engineer – Motion Planning",
         "Senior PLC/DCS Automation Engineer",
@@ -307,10 +473,21 @@ if __name__ == "__main__":
         "Electrical Designer – Substation",
         "SCADA Engineer",
         "Geotechnical Engineer II",
+        "Engineering Intern",
+        "Intern",
+        "Summer Intern",
+        "Co-op Student",
+        "Engineer in Training",
+        "EIT",
+        "Graduate Engineer",
+        "Junior Civil Engineer",
+        "PE, Senior Structural Engineer",
+        "Licensed Professional Engineer",
         "",
     ]
-    print(f"{'Raw Title':<45}  {'Discipline':<38}  {'Seniority'}")
-    print("─" * 100)
+    print(f"{'Raw Title':<45}  {'Discipline':<30}  {'Seniority':<22}  PE?")
+    print("─" * 110)
     for t in test_titles:
         r = classify(t)
-        print(f"{(t or '(empty)'):<45}  {r['discipline']:<38}  {r['seniority']}")
+        pe = "✓ PE" if r["is_pe"] else ""
+        print(f"{(t or '(empty)'):<45}  {r['discipline']:<30}  {r['seniority']:<22}  {pe}")

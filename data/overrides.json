@@ -1,0 +1,33 @@
+{
+  "_note": "Edited via the UI or manually. Applied by export_to_json.py before every export. Never overwritten by the pipeline.",
+
+  "company_merges": {
+    "_note": "Format: {\"alias\": \"canonical name\"}. All connections at 'alias' are moved to 'canonical name'.",
+    "examples_remove_these": {
+      "EEI": "Engineering Economics, Inc."
+    }
+  },
+
+  "person_reassignments": {
+    "_note": "Format: {\"connection_id\": \"canonical company name\"}. Overrides whatever company the pipeline detected.",
+    "examples_remove_these": {}
+  },
+
+  "change_rules": {
+    "_note": "Controls what counts as 'obvious' vs 'ambiguous' when the CSV shows a company change.",
+
+    "auto_apply_threshold": 0.45,
+    "_auto_apply_threshold_note": "String similarity (0-1) below which a company change is flagged for approval. 0.45 means changes where new and old company names are less than 45% similar are auto-applied; more similar names get flagged as potentially ambiguous (e.g. 'EEI' vs 'Engineering Economics, Inc.'). Lower = approve more automatically. Higher = flag more for review.",
+
+    "always_auto_apply": [
+      "_note: Company pairs where changes are ALWAYS auto-applied regardless of similarity",
+      "examples_remove_these: [{\"from\": \"Google\", \"to\": \"Alphabet\"}]"
+    ],
+
+    "always_flag": [
+      "_note: Company name fragments that should ALWAYS be flagged for review (e.g. known aliases)",
+      "EEI",
+      "Engineering Economics"
+    ]
+  }
+}

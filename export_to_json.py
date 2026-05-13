@@ -318,6 +318,8 @@ def export():
             "discipline_family":    taxonomy["discipline_family"],
             "discipline_specialty": taxonomy["discipline_specialty"],
             "seniority":            taxonomy["seniority"],
+            "is_pe":                taxonomy.get("is_pe", False),
+            "certifications":       taxonomy.get("certifications", {}),
 
             # Enriched fields
             "school":               safe_str(row.get("school") or ""),
