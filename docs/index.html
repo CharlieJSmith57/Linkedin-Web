@@ -690,7 +690,7 @@ function buildGroupView(groupBy){
     } else {
       const sorted=[...members].sort((a,b)=>{
         const d=seniorityRank(a.seniority)-seniorityRank(b.seniority);
-        return d|||(a.last||'').localeCompare(b.last||'');
+        return d||(a.last||'').localeCompare(b.last||'');
       });
       bodyHTML=`<div class="tier-people">${sorted.map(p=>chipHTML(p,false)).join('')}<\/div>`;
     }
