@@ -1,37 +1,22 @@
-# ── Credentials — NEVER commit ────────────────────────────────
 config.py
-
-# ── Python ────────────────────────────────────────────────────
 __pycache__/
 *.py[cod]
 *.pyo
 .venv/
 venv/
 env/
-
-# ── Real data lives in B:\linkedin-data, not here ─────────────
-# The data\ folder in the project contains TEMPLATES only.
-# Real data files are never stored in the project folder.
 data/network_master.xlsx
 data/snapshots/
 data/logs/
 data/csv_inbox/
-
-# Keep template JSON files tracked (they are starter templates, not real data)
 !data/industry_map.json
 !data/overrides.json
 !data/pending_changes.json
 !data/custom_taxonomy.json
-
-# ── GitHub Pages output — DO commit this ──────────────────────
 !docs/data/network.json
-
-# ── OS ────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 desktop.ini
-
-# ── Editor ────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.swp

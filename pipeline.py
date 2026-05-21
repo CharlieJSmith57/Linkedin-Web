@@ -103,29 +103,33 @@ def run():
     log.info("  LinkedIn Pipeline — %s", date.today().isoformat())
     log.info("════════════════════════════════════════")
 
-    # Step 1: Open LinkedIn export page
-    open_linkedin_export_page()
+    # Step 1: Check if a CSV is already waiting in the inbox (skip email watcher)
+    import os
+    from pathlib import Path as _Path
+    _inbox = _Path(config.CSV_INBOX_DIR)
+    _existing = sorted(_inbox.glob("*.csv"))
+    if _existing:
+        csv_path = _existing[0]
+        log.info("Found existing CSV in inbox: %s — skipping email watcher.", csv_path.name)
+    else:
+        # Step 2: Open LinkedIn export page and watch Gmail
+        open_linkedin_export_page()
+        log.info("Starting email watcher — click 'Request archive' on LinkedIn now.")
+        from email_watcher import wait_for_export_email
+        csv_path = wait_for_export_email()
+        # Fallback: manual file drop
+        if not csv_path:
+            log.warning("Email watcher timed out. Drop Connections.csv into: %s", config.CSV_INBOX_DIR)
+            csv_path = wait_for_csv()
 
-    # Step 2: Watch Gmail for the export-ready email and auto-download
-    log.info("Starting email watcher — go to LinkedIn and click 'Request archive' now.")
-    from email_watcher import wait_for_export_email
-    csv_path = wait_for_export_email()
-
-    # Fallback: if email watcher fails, wait for manual CSV drop
     if not csv_path:
-        log.warning("Email watcher did not find the CSV. Falling back to manual mode.")
-        log.warning("Drop Connections.csv into: %s", config.CSV_INBOX_DIR)
-        csv_path = wait_for_csv()
-
-    if not csv_path:
-        log.error("No CSV found after 1 hour. Exiting.")
+        log.error("No CSV found. Exiting.")
         sys.exit(1)
 
-    # Small pause to ensure the file is fully written before reading
+    # Small pause to ensure file is fully written
     time.sleep(2)
 
     # Step 3 + 4: Parse CSV and update Excel
-    import os
     os.environ["PIPELINE_CSV_PATH"] = str(csv_path)
 
     run_module("change_detector.py", "Change detector")
@@ -136,7 +140,21 @@ def run():
     # Step 6: Commit + push
     run_module("git_push.py", "Git push")
 
-    # Archive the processed CSV so it's not picked up again
+    # Step 6.5: Ingest scraper data if available
+    try:
+        import ingest_enriched
+        if Path(config.SCRAPER_DATA_PATH).exists():
+            log.info("Ingesting scraper data from: %s", config.SCRAPER_DATA_PATH)
+            ingest_enriched.ingest()
+            # Re-export after ingestion to include new scraper fields
+            run_module("export_to_json.py", "JSON re-export (post-scraper)")
+            run_module("git_push.py", "Git push (post-scraper)")
+        else:
+            log.info("No scraper data found at %s — skipping enrichment.", config.SCRAPER_DATA_PATH)
+    except Exception as e:
+        log.warning("Scraper ingestion failed (non-fatal): %s", e)
+
+    # Archive the processed CSV
     archive_dir = Path(config.CSV_INBOX_DIR) / "processed"
     archive_dir.mkdir(exist_ok=True)
     archived = archive_dir / f"{date.today().isoformat()}_{csv_path.name}"

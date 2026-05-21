@@ -207,6 +207,7 @@ body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;c
         <span id="data-stamp"></span>
         <button class="tb-btn" onclick="showMergePanel()">⊕ Merge companies</button>
         <button class="tb-btn" onclick="exportCompanyList()" title="Copy company list for Claude to categorize">📋 Company list</button>
+        <button class="tb-btn" onclick="showGreekPanel()">⚑ Greek life</button>
         <button class="tb-btn" onclick="showNotifPanel()" id="notif-btn">
           🔔 Notifications
           <span id="notif-badge">0</span>
@@ -242,6 +243,38 @@ body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;c
   <div id="detail">
     <div id="det-close" onclick="closeDetail()">✕</div>
     <div id="det-body"></div>
+  </div>
+</div>
+
+<!-- GREEK LIFE PANEL -->
+<div class="overlay" id="greek-overlay" onclick="closeOverlay('greek')">
+  <div class="panel" style="width:520px" onclick="event.stopPropagation()">
+    <div class="panel-head">
+      <h2>⚑ Greek life</h2>
+      <button class="panel-close" onclick="closeOverlay('greek')">✕</button>
+    </div>
+    <div class="panel-body">
+      <p style="font-size:11.5px;color:var(--text-2);margin-bottom:12px;line-height:1.5">
+        Merge aliases (e.g. "PIKE") into canonical org names (e.g. "Pi Kappa Alpha").
+        Saved merges apply to all connections automatically.
+      </p>
+      <label class="form-label">Alias to merge (e.g. "PIKE", "Phi Gam")</label>
+      <div class="merge-row" style="margin-bottom:8px">
+        <input type="text" id="greek-alias-input" placeholder="Type alias…" style="flex:1;font-size:12px;padding:5px 8px;border:1px solid var(--border);border-radius:5px;background:var(--bg-hover);color:var(--text-1);outline:none">
+        <span class="merge-arrow">→</span>
+        <select id="greek-canonical-select" style="flex:1;font-size:12px;padding:5px 8px;border:1px solid var(--border);border-radius:5px;background:var(--bg-hover);color:var(--text-1);outline:none">
+          <option value="">Select canonical org…</option>
+        </select>
+      </div>
+      <button class="btn-primary" onclick="addGreekMerge()" style="width:100%;margin-bottom:16px">Add merge rule</button>
+      <div class="sec-label" style="padding:0 0 6px">Active Greek merge rules</div>
+      <div id="greek-merge-list"></div>
+      <div class="sec-label" style="padding:12px 0 6px">Org database</div>
+      <div id="greek-db-list" style="max-height:200px;overflow-y:auto"></div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn-ghost" onclick="closeOverlay('greek')">Done</button>
+    </div>
   </div>
 </div>
 
@@ -389,6 +422,7 @@ function init(){
     const d=new Date(generatedAt);
     document.getElementById('data-stamp').textContent='Updated '+d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
   }
+  applyGreekMerges();
   buildConnList();
   buildOverlapSelect();
   populateMergeSelects();
@@ -529,6 +563,14 @@ function drawNetwork(){
       if(nodes[ai]?.id===overlapId||nodes[bi]?.id===overlapId){highlighted.add(nodes[ai]?.id);highlighted.add(nodes[bi]?.id);}
     });
   }
+  // Greek org isolation: highlight members of active org
+  const greekHighlighted=new Set();
+  if(activeGreekOrg){
+    ALL.forEach(c=>{
+      const entries=getGreekEntries(c);
+      if(entries.some(e=>e.org.id===activeGreekOrg)) greekHighlighted.add(c.id);
+    });
+  }
 
   // Links
   links.forEach(l=>{
@@ -549,11 +591,23 @@ function drawNetwork(){
   nodes.forEach(n=>{
     const col=companyColor(n.current_company);
     const isSel=n.id===selectedId;
-    const isDim=overlapId&&!highlighted.has(n.id);
+    const isDim=(overlapId&&!highlighted.has(n.id))||(activeGreekOrg&&!greekHighlighted.has(n.id));
     ctx.globalAlpha=isDim?.15:1;
     if(isSel){ctx.beginPath();ctx.arc(n.x,n.y,R+4,0,Math.PI*2);ctx.strokeStyle=col.dot;ctx.lineWidth=2;ctx.stroke();}
-    ctx.beginPath();ctx.arc(n.x,n.y,R,0,Math.PI*2);ctx.fillStyle=col.bg;ctx.fill();
-    ctx.strokeStyle=isSel?col.dot:col.dot+'66';ctx.lineWidth=isSel?1.5:.8;ctx.stroke();
+    // Use org colors when this node belongs to the active Greek org
+    let nodeBg=col.bg, nodeDot=col.dot;
+    if(activeGreekOrg&&greekHighlighted.has(n.id)){
+      const entries=getGreekEntries(ALL.find(c=>c.id===n.id)||{});
+      const orgEntry=entries.find(e=>e.org.id===activeGreekOrg);
+      if(orgEntry){nodeBg=orgEntry.org.p1+'33';nodeDot=orgEntry.org.p1;}
+    }
+    if(chapterCluster.includes(n.id)&&activeChapter){
+      const entries=getGreekEntries(ALL.find(c=>c.id===n.id)||{});
+      const orgEntry=entries.find(e=>e.org.id===activeGreekOrg);
+      if(orgEntry){nodeBg=orgEntry.org.p1+'88';nodeDot=orgEntry.org.p1;}
+    }
+    ctx.beginPath();ctx.arc(n.x,n.y,R,0,Math.PI*2);ctx.fillStyle=nodeBg;ctx.fill();
+    ctx.strokeStyle=isSel?nodeDot:nodeDot+(isSel?'':'66');ctx.lineWidth=isSel?2:.8;ctx.stroke();
     if(showPhotos&&n.photo_url){
       let img=photoCache[n.id];
       if(!img){img=new Image();img.src=n.photo_url;img.onload=()=>drawNetwork();photoCache[n.id]=img;}
@@ -574,7 +628,22 @@ function nodeAt(x,y){return nodes.find(n=>Math.hypot(n.x-x,n.y-y)<20)||null;}
 function onMD(e){const{x,y}=canvasXY(e);const n=nodeAt(x,y);if(n){dragNode=n;dragOff={x:n.x-x,y:n.y-y};sim.alphaTarget(.05).restart();}else{panning=true;panStart={x:e.clientX,y:e.clientY};panOrig={x:tx,y:ty};}}
 function onMV(e){if(dragNode){const{x,y}=canvasXY(e);dragNode.x=dragNode.fx=x+dragOff.x;dragNode.y=dragNode.fy=y+dragOff.y;drawNetwork();}else if(panning){tx=panOrig.x+(e.clientX-panStart.x);ty=panOrig.y+(e.clientY-panStart.y);drawNetwork();}}
 function onMU(){if(dragNode){dragNode.fx=null;dragNode.fy=null;sim.alphaTarget(0);}dragNode=null;panning=false;}
-function onCK(e){const{x,y}=canvasXY(e);const n=nodeAt(x,y);if(n)selectNode(n.id);else closeDetail();}
+function onCK(e){
+  const{x,y}=canvasXY(e);const n=nodeAt(x,y);
+  if(n){
+    // If a Greek chapter is active and this node is in the cluster, cluster around it
+    if(activeChapter&&chapterCluster.includes(n.id)){
+      clusterChapterAround(n.id);
+    } else if(activeChapter&&!chapterCluster.includes(n.id)){
+      clearGreekIsolation();
+    }
+    selectNode(n.id);
+  } else {
+    // Background click — clear Greek isolation and deselect
+    if(activeGreekOrg) clearGreekIsolation();
+    else closeDetail();
+  }
+}
 function doZoom(f){sc=Math.max(.2,Math.min(4,sc*f));drawNetwork();}
 function resetView(){tx=0;ty=0;sc=1;drawNetwork();}
 function toggleLabels(){showLabels=!showLabels;document.getElementById('tl-labels').classList.toggle('on',showLabels);drawNetwork();}
@@ -611,13 +680,45 @@ function openDetail(c){
       ${ovHTML}<\/div>`;
   });
 
+  // Build education HTML with Greek badges attached to each school
   let eduHTML=(c.education||[]).map(e=>{
     const yr=(e.start_year&&e.end_year)?`${e.start_year}–${e.end_year}`:e.end_year?`Graduated ${e.end_year}`:'';
+    // Find Greek orgs associated with this school
+    const schoolOrgs=(c.greek_orgs||[]).map(parseGreekEntry).filter(g=>g&&(!g.school||g.school.toLowerCase().includes((e.school||'').toLowerCase().split(' ')[0])));
+    const greekTagsHTML=schoolOrgs.map(g=>{
+      const border=g.org.p2||g.org.p1;
+      const chLabel=g.chapter_name?`, ${g.chapter_name}`:'';
+      return `<span style="display:inline-flex;align-items:center;margin-right:4px;margin-top:3px;border-radius:8px;overflow:hidden;font-size:10.5px;font-weight:700;cursor:pointer">
+        <span onclick="highlightGreekOrg('${g.org.id}')"
+          style="padding:2px 7px;background:${g.org.p1};color:#fff;border:1.5px solid ${border};"
+          title="Highlight all ${g.org.full} members">${g.org.letters}<\/span>${chLabel?`<span onclick="highlightGreekChapter('${g.org.id}','${(g.chapter_name||'').replace(/'/g,"\\'")}','${(g.school||'').replace(/'/g,"\\'")}')"
+          style="padding:2px 6px;background:${border}22;color:${g.org.p1};border:1.5px solid ${border};border-left:none;font-weight:500;font-size:10px"
+          title="Zoom to ${g.chapter_name} chapter">${chLabel}<\/span>`:''}
+      <\/span>`;
+    }).join('');
     return`<div class="edu-entry" style="padding:5px 0;border-bottom:1px solid var(--border);font-size:11px">
       <div style="font-weight:500">${e.school||'—'}<\/div>
       <div style="font-size:10px;color:var(--text-3);margin-top:1px">${[e.degree,e.field,yr].filter(Boolean).join(' · ')}<\/div>
+      ${greekTagsHTML?`<div class="greek-section">${greekTagsHTML}<\/div>`:''}
     <\/div>`;
   }).join('');
+  // Also render Greek orgs not tied to a specific school entry
+  const orphanOrgs=(c.greek_orgs||[]).map(parseGreekEntry).filter(g=>{
+    if(!g) return false;
+    return !(c.education||[]).some(e=>g.school&&g.school.toLowerCase().includes((e.school||'').toLowerCase().split(' ')[0]));
+  });
+  if(orphanOrgs.length){
+    const orphanTags=orphanOrgs.map(g=>{
+      const border=g.org.p2||g.org.p1;
+      const chLabel=g.chapter_name?`, ${g.chapter_name}`:'';
+      return `<span style="display:inline-flex;align-items:center;margin-right:4px;border-radius:8px;overflow:hidden;font-size:10.5px;font-weight:700;cursor:pointer">
+        <span onclick="highlightGreekOrg('${g.org.id}')"
+          style="padding:2px 7px;background:${g.org.p1};color:#fff;border:1.5px solid ${border};">${g.org.letters}<\/span>${chLabel?`<span onclick="highlightGreekChapter('${g.org.id}','${(g.chapter_name||'').replace(/'/g,"\\'")}','${(g.school||'').replace(/'/g,"\\'")}')"
+          style="padding:2px 6px;background:${border}22;color:${g.org.p1};border:1.5px solid ${border};border-left:none;font-weight:500;font-size:10px">${chLabel}<\/span>`:''}
+      <\/span>`;
+    }).join('');
+    eduHTML+=`<div style="padding:5px 0;font-size:11px"><div style="font-weight:500;color:var(--text-3);font-size:10px;margin-bottom:3px">Greek life<\/div><div>${orphanTags}<\/div><\/div>`;
+  }
 
   let skillsHTML=(c.skills||[]).length?`<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px">${c.skills.map(s=>`<span style="font-size:10px;padding:2px 7px;border-radius:10px;background:var(--bg-hover);border:1px solid var(--border)">${s}<\/span>`).join('')}<\/div>`:'';
 
@@ -994,6 +1095,263 @@ function certBadges(c, fontSize=''){
     if(val) html+=`<span class="pe-badge" style="${fs}background:#F0F4E8;color:#3A5A10;border-color:#B8D080">${name}<\/span>`;
   });
   return html;
+}
+
+// ═══════════════════════════════════════════════════════════════
+
+// ═══════════════════════════════════════════════════════════════
+//  GREEK LIFE DATABASE & LOGIC
+// ═══════════════════════════════════════════════════════════════
+
+const GREEK_DB_ALL = [
+  // Fraternities
+  {id:"pike",    full:"Pi Kappa Alpha",    letters:"ΠΚΑ",nick:"PIKE",     type:"f",p1:"#6B0D2E",p2:"#C8A800",aliases:["pike","pikes","pi kappa alpha","πκα","pika"]},
+  {id:"fiji",    full:"Phi Gamma Delta",   letters:"ΦΓΔ",nick:"FIJI",     type:"f",p1:"#4B2E8C",p2:"#C8B000",aliases:["fiji","phi gamma delta","φγδ","phi gam"]},
+  {id:"sigep",   full:"Sigma Phi Epsilon", letters:"ΣΦΕ",nick:"Sig Ep",   type:"f",p1:"#7B0000",p2:"#4A1E8C",aliases:["sig ep","sigep","sigma phi epsilon","σφε"]},
+  {id:"sigchi",  full:"Sigma Chi",         letters:"ΣΧ", nick:"Sig Chi",  type:"f",p1:"#003087",p2:"#C8B400",aliases:["sig chi","sigma chi","σχ","sigchi"]},
+  {id:"sae",     full:"Sigma Alpha Epsilon",letters:"ΣΑΕ",nick:"SAE",     type:"f",p1:"#4B2E8C",p2:"#C8A800",aliases:["sae","sigma alpha epsilon","σαε"]},
+  {id:"phidelt", full:"Phi Delta Theta",   letters:"ΦΔΘ",nick:"Phi Delt", type:"f",p1:"#003087",p2:"#87CEEB",aliases:["phi delt","phi delta theta","φδθ","phi"]},
+  {id:"beta",    full:"Beta Theta Pi",     letters:"ΒΘΠ",nick:"Beta",     type:"f",p1:"#CC0000",p2:"#FFC0CB",aliases:["beta","beta theta pi","βθπ","beta theta"]},
+  {id:"kapsig",  full:"Kappa Sigma",       letters:"ΚΣ", nick:"Kappa Sig",type:"f",p1:"#006400",p2:"#CC0000",aliases:["kappa sig","kappa sigma","κσ"]},
+  {id:"lambdachi",full:"Lambda Chi Alpha", letters:"ΛΧΑ",nick:"Lambda Chi",type:"f",p1:"#4B2E8C",p2:"#C8A800",aliases:["lambda chi","lambda chi alpha","λχα","chops"]},
+  {id:"thetachi",full:"Theta Chi",         letters:"ΘΧ", nick:"T Chi",    type:"f",p1:"#CC0000",p2:"#F5F5DC",aliases:["theta chi","θχ","t chi","ox","thetachi"]},
+  {id:"delt",    full:"Delta Tau Delta",   letters:"ΔΤΔ",nick:"Delt",     type:"f",p1:"#4B2E8C",p2:"#C8A800",aliases:["delt","delta tau delta","δτδ","dtd"]},
+  {id:"sigmanu", full:"Sigma Nu",          letters:"ΣΝ", nick:"Sig Nu",   type:"f",p1:"#1C1C1C",p2:"#F5F5DC",aliases:["sig nu","sigma nu","σν","knights"]},
+  {id:"ato",     full:"Alpha Tau Omega",   letters:"ΑΤΩ",nick:"ATO",      type:"f",p1:"#003087",p2:"#C8A800",aliases:["ato","alpha tau omega","ατω","tau"]},
+  {id:"tke",     full:"Tau Kappa Epsilon", letters:"ΤΚΕ",nick:"TKE",      type:"f",p1:"#CC0000",p2:"#808080",aliases:["tke","tau kappa epsilon","τκε","teke"]},
+  {id:"phipsi",  full:"Phi Kappa Psi",     letters:"ΦΚΨ",nick:"Phi Psi",  type:"f",p1:"#006400",p2:"#CC0000",aliases:["phi psi","phi kappa psi","φκψ"]},
+  {id:"dke",     full:"Delta Kappa Epsilon",letters:"ΔΚΕ",nick:"Deke",    type:"f",p1:"#CC0000",p2:"#003087",aliases:["deke","dke","delta kappa epsilon","δκε"]},
+  {id:"pikapp",  full:"Pi Kappa Phi",      letters:"ΠΚΦ",nick:"Pi Kapp",  type:"f",p1:"#C8A800",p2:"#003087",aliases:["pi kapp","pi kappa phi","πκφ","pkp"]},
+  {id:"aepi",    full:"Alpha Epsilon Pi",  letters:"ΑΕΠ",nick:"AEPi",     type:"f",p1:"#003087",p2:"#C8A800",aliases:["aepi","alpha epsilon pi","αεπ","ape"]},
+  {id:"apa",     full:"Alpha Phi Alpha",   letters:"ΑΦΑ",nick:"Alpha",    type:"f",p1:"1C1C1C", p2:"#C8A800",aliases:["alpha phi alpha","αφα","aphia"]},
+  {id:"kapsi",   full:"Kappa Alpha Psi",   letters:"ΚΑΨ",nick:"Kappa",    type:"f",p1:"#CC0000",p2:"#F5F5DC",aliases:["kappa alpha psi","καψ"]},
+  {id:"omegaps", full:"Omega Psi Phi",     letters:"ΩΨΦ",nick:"Ques",     type:"f",p1:"#4B2E8C",p2:"#C8A800",aliases:["omega psi phi","ωψφ","ques"]},
+  {id:"phibets", full:"Phi Beta Sigma",    letters:"ΦΒΣ",nick:"Sigmas",   type:"f",p1:"#003087",p2:"#F5F5DC",aliases:["phi beta sigma","φβσ","sigmas"]},
+  // Sororities
+  {id:"adpi",    full:"Alpha Delta Pi",    letters:"ΑΔΠ",nick:"ADPi",     type:"s",p1:"#003087",p2:"#006400",aliases:["adpi","alpha delta pi","αδπ","a d pi"]},
+  {id:"aephi",   full:"Alpha Epsilon Phi", letters:"ΑΕΦ",nick:"AEPhi",    type:"s",p1:"#006400",p2:"#C8A800",aliases:["aephi","alpha epsilon phi","αεφ"]},
+  {id:"aphi",    full:"Alpha Phi",         letters:"ΑΦ", nick:"A Phi",    type:"s",p1:"#800020",p2:"#C0C0C0",aliases:["alpha phi","αφ","a phi","aphi"]},
+  {id:"axo",     full:"Alpha Chi Omega",   letters:"ΑΧΩ",nick:"Alpha Chi", type:"s",p1:"#CC0000",p2:"#006400",aliases:["alpha chi","alpha chi omega","αχω","axo"]},
+  {id:"dg",      full:"Delta Gamma",       letters:"ΔΓ", nick:"DG",       type:"s",p1:"#B87333",p2:"#FFC0CB",aliases:["dg","delta gamma","δγ","d g"]},
+  {id:"tridelt", full:"Delta Delta Delta", letters:"ΔΔΔ",nick:"Tri Delta", type:"s",p1:"#C0C0C0",p2:"#C8A800",aliases:["tri delta","tri delt","delta delta delta","δδδ","ddd"]},
+  {id:"dz",      full:"Delta Zeta",        letters:"ΔΖ", nick:"DZ",       type:"s",p1:"#CC0000",p2:"#006400",aliases:["dz","delta zeta","δζ","d z"]},
+  {id:"gammaphi",full:"Gamma Phi Beta",    letters:"ΓΦΒ",nick:"Gamma Phi", type:"s",p1:"#4B2E8C",p2:"#C0BF94",aliases:["gamma phi","gamma phi beta","γφβ"]},
+  {id:"kat",     full:"Kappa Alpha Theta", letters:"ΚΑΘ",nick:"Theta",    type:"s",p1:"#1C1C1C",p2:"#C8A800",aliases:["theta","kappa alpha theta","κaθ","kat"]},
+  {id:"kd",      full:"Kappa Delta",       letters:"ΚΔ", nick:"KD",       type:"s",p1:"#006400",p2:"#F5F5DC",aliases:["kd","kappa delta","κδ","k d"]},
+  {id:"kkg",     full:"Kappa Kappa Gamma", letters:"ΚΚΓ",nick:"Kappa",    type:"s",p1:"#003087",p2:"#87CEFA",aliases:["kappa","kkg","kappa kappa gamma","κκγ","k k g"]},
+  {id:"piphi",   full:"Pi Beta Phi",       letters:"ΠΒΦ",nick:"Pi Phi",   type:"s",p1:"#800020",p2:"#87CEFA",aliases:["pi phi","pi beta phi","πβφ","pbp"]},
+  {id:"zta",     full:"Zeta Tau Alpha",    letters:"ΖΤΑ",nick:"Zeta",     type:"s",p1:"#008B8B",p2:"#808080",aliases:["zeta","zta","zeta tau alpha","ζτα"]},
+  {id:"sigmakap",full:"Sigma Kappa",       letters:"ΣΚ", nick:"Sig Kap",  type:"s",p1:"#4B2E8C",p2:"#800020",aliases:["sig kap","sigma kappa","σκ","sk"]},
+  {id:"chiomega",full:"Chi Omega",         letters:"ΧΩ", nick:"Chi O",    type:"s",p1:"#CC0000",p2:"#C8A800",aliases:["chi o","chi omega","χω","xo"]},
+  {id:"dst",     full:"Delta Sigma Theta", letters:"ΔΣΘ",nick:"Deltas",   type:"s",p1:"#CC0000",p2:"#F5F5DC",aliases:["delta sigma theta","δσθ","deltas","dst"]}
+];
+
+// Build alias map
+const _gMap = {};
+GREEK_DB_ALL.forEach(o => o.aliases.forEach(a => { _gMap[a] = o; }));
+
+function resolveOrg(name) {
+  if (!name) return null;
+  return _gMap[name.toLowerCase().trim()] || null;
+}
+
+function parseGreekEntry(raw) {
+  if (!raw) return null;
+  const commaIdx = raw.indexOf(',');
+  let orgPart = raw.trim(), chapterPart = '';
+  if (commaIdx > 0) { orgPart = raw.slice(0, commaIdx).trim(); chapterPart = raw.slice(commaIdx + 1).trim(); }
+  const org = resolveOrg(orgPart) || resolveOrg(raw.trim());
+  if (!org) return null;
+  let chapterName = '', school = '';
+  if (chapterPart) {
+    const atIdx = chapterPart.toLowerCase().indexOf(' at ');
+    if (atIdx >= 0) { chapterName = chapterPart.slice(0, atIdx).trim(); school = chapterPart.slice(atIdx + 4).trim(); }
+    else chapterName = chapterPart;
+  }
+  return { org, chapter_name: chapterName, school };
+}
+
+function getGreekEntries(c) {
+  return (c.greek_orgs || []).map(parseGreekEntry).filter(Boolean);
+}
+
+// Apply saved greek merges to alias map on load
+function applyGreekMerges() {
+  const o = getOverrides();
+  Object.entries(o.greek_merges || {}).forEach(([alias, orgId]) => {
+    const org = GREEK_DB_ALL.find(x => x.id === orgId);
+    if (org) _gMap[alias.toLowerCase().trim()] = org;
+  });
+}
+
+// ── Greek isolation state ──────────────────────────────────────────────────────
+let activeGreekOrg    = null;  // org id
+let activeChapter     = null;  // {chapter_name, school}
+let chapterCluster    = [];    // connection ids in active chapter
+let clusterPositions  = {};    // saved {id: {x,y}} before clustering
+let clusterFormed     = false;
+
+function setActiveGreekOrg(orgId, chapter) {
+  activeGreekOrg = orgId;
+  activeChapter  = chapter || null;
+  chapterCluster = [];
+  clusterFormed  = false;
+  if (orgId && chapter) {
+    // Find all connections in this chapter
+    chapterCluster = ALL.filter(c => {
+      const entries = getGreekEntries(c);
+      return entries.some(e =>
+        e.org.id === orgId &&
+        e.chapter_name.toLowerCase() === chapter.chapter_name.toLowerCase()
+      );
+    }).map(c => c.id);
+  }
+  if (view === 'network') drawNetwork();
+}
+
+function clearGreekIsolation() {
+  if (clusterFormed && clusterPositions) {
+    // Restore positions
+    nodes.forEach(n => {
+      if (clusterPositions[n.id]) { n.x = clusterPositions[n.id].x; n.y = clusterPositions[n.id].y; n.fx = null; n.fy = null; }
+    });
+    clusterFormed = false;
+    clusterPositions = {};
+    sim.alpha(0.3).restart();
+  }
+  activeGreekOrg = null;
+  activeChapter  = null;
+  chapterCluster = [];
+  drawNetwork();
+}
+
+function clusterChapterAround(centerId) {
+  if (!chapterCluster.length) return;
+  // Save current positions if first clustering
+  if (!clusterFormed) {
+    nodes.forEach(n => { clusterPositions[n.id] = {x: n.x, y: n.y}; });
+    clusterFormed = true;
+  }
+  const center = nodes.find(n => n.id === centerId);
+  if (!center) return;
+  // Arrange chapter members in a tight circle around center
+  const R = 80, cx = center.x, cy = center.y;
+  const members = chapterCluster.filter(id => id !== centerId);
+  members.forEach((id, i) => {
+    const angle = (i / members.length) * Math.PI * 2;
+    const n = nodes.find(x => x.id === id);
+    if (n) { n.fx = cx + R * Math.cos(angle); n.fy = cy + R * Math.sin(angle); }
+  });
+  // Zoom to the cluster
+  zoomToCluster(chapterCluster);
+  sim.alpha(0.5).restart();
+}
+
+function zoomToCluster(ids) {
+  const members = nodes.filter(n => ids.includes(n.id));
+  if (!members.length) return;
+  const xs = members.map(n => n.x), ys = members.map(n => n.y);
+  const minX = Math.min(...xs), maxX = Math.max(...xs);
+  const minY = Math.min(...ys), maxY = Math.max(...ys);
+  const padFrac = 0.25; // 1/4 screen padding
+  const targetW = canW * (1 - 2 * padFrac);
+  const targetH = canH * (1 - 2 * padFrac);
+  const dataW = maxX - minX || 1, dataH = maxY - minY || 1;
+  const newSc = Math.min(targetW / dataW, targetH / dataH, 3);
+  const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+  tx = canW / 2 - cx * newSc;
+  ty = canH / 2 - cy * newSc;
+  sc = newSc;
+  drawNetwork();
+}
+
+// ── Greek panel UI ─────────────────────────────────────────────────────────────
+function showGreekPanel() {
+  // Populate canonical select
+  const sel = document.getElementById('greek-canonical-select');
+  sel.innerHTML = '<option value="">Select canonical org…<\/option>';
+  const fratsEl = document.createElement('optgroup'); fratsEl.label = 'Fraternities';
+  const sorEl   = document.createElement('optgroup'); sorEl.label   = 'Sororities';
+  GREEK_DB_ALL.forEach(o => {
+    const opt = new Option(`${o.letters} — ${o.full}`, o.id);
+    (o.type === 'f' ? fratsEl : sorEl).appendChild(opt);
+  });
+  sel.appendChild(fratsEl); sel.appendChild(sorEl);
+
+  // Render merge list
+  renderGreekMergeList();
+
+  // Render org database
+  const dbEl = document.getElementById('greek-db-list');
+  dbEl.innerHTML = GREEK_DB_ALL.map(o => `
+    <div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid var(--border)">
+      <span style="display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:700;
+        background:${o.p1};color:#fff;border:1.5px solid ${o.p2}">${o.letters}<\/span>
+      <span style="font-size:11.5px;font-weight:500">${o.full}<\/span>
+      ${o.nick !== o.full ? `<span style="font-size:10px;color:var(--text-3)">(${o.nick})<\/span>` : ''}
+    <\/div>`).join('');
+
+  document.getElementById('greek-overlay').classList.add('on');
+}
+
+function renderGreekMergeList() {
+  const o = getOverrides();
+  const merges = o.greek_merges || {};
+  const el = document.getElementById('greek-merge-list');
+  const entries = Object.entries(merges);
+  el.innerHTML = entries.length === 0
+    ? '<div style="font-size:11px;color:var(--text-3)">No merge rules yet.<\/div>'
+    : entries.map(([alias, orgId]) => {
+        const org = GREEK_DB_ALL.find(x => x.id === orgId);
+        return `<div class="merge-list-item">
+          <span><strong>${alias}<\/strong> → ${org ? org.full : orgId}<\/span>
+          <button onclick="doRemoveGreekMerge('${alias}')">✕ Remove<\/button>
+        <\/div>`;
+      }).join('');
+}
+
+function addGreekMerge() {
+  const alias = document.getElementById('greek-alias-input').value.trim();
+  const orgId = document.getElementById('greek-canonical-select').value;
+  if (!alias || !orgId) { alert('Enter an alias and select a canonical org.'); return; }
+  const o = getOverrides();
+  o.greek_merges = o.greek_merges || {};
+  o.greek_merges[alias.toLowerCase()] = orgId;
+  saveOverrides(o);
+  // Apply to alias map
+  const org = GREEK_DB_ALL.find(x => x.id === orgId);
+  if (org) _gMap[alias.toLowerCase()] = org;
+  document.getElementById('greek-alias-input').value = '';
+  renderGreekMergeList();
+  buildConnList();
+}
+
+function doRemoveGreekMerge(alias) {
+  const o = getOverrides();
+  if (o.greek_merges) delete o.greek_merges[alias];
+  saveOverrides(o);
+  delete _gMap[alias.toLowerCase()];
+  renderGreekMergeList();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  GREEK HIGHLIGHT ENTRY POINTS
+// ═══════════════════════════════════════════════════════════════
+function highlightGreekOrg(orgId){
+  closeDetail();
+  if(view!=='network') switchView('network');
+  setActiveGreekOrg(orgId, null);
+}
+
+function highlightGreekChapter(orgId, chapterName, school){
+  closeDetail();
+  if(view!=='network') switchView('network');
+  setActiveGreekOrg(orgId, {chapter_name:chapterName, school});
+  const memberIds=ALL.filter(c=>{
+    const entries=getGreekEntries(c);
+    return entries.some(e=>e.org.id===orgId&&e.chapter_name.toLowerCase()===chapterName.toLowerCase());
+  }).map(c=>c.id);
+  if(memberIds.length) setTimeout(()=>zoomToCluster(memberIds), 300);
 }
 
 // ═══════════════════════════════════════════════════════════════
