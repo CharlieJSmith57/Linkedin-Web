@@ -224,6 +224,7 @@ def export():
             # Enriched — HTML scraper (ingest_enriched.py)
             "cert_tags":            all_cert_tags,
             "greek_orgs":           split_pipe(safe_str(row.get("greek_orgs") or "")),
+            "greek_org_ids":        safe_str(row.get("greek_org_ids") or ""),
             "company_locations":    parse_company_locations(safe_str(row.get("company_locations") or "")),
             "honors":               split_pipe(safe_str(row.get("honors") or "")),
             "org_memberships":      split_pipe(safe_str(row.get("org_memberships") or "")),

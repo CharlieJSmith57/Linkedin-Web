@@ -96,13 +96,13 @@ def step_open_csv_export() -> None:
 
 def step_run_enricher() -> bool:
     """
-    Run ingest_enriched.py (the slow LinkedIn API scraper).
+    Run ingest_enriched_updated.py (the Playwright-based LinkedIn scraper).
     Returns True if it completed without error.
     """
     log.info("STEP 2 — Running enricher (8-12 profiles)")
-    script = PIPELINE_DIR / "ingest_enriched.py"
+    script = PIPELINE_DIR / "ingest_enriched_updated.py"
     if not script.exists():
-        log.warning("  ingest_enriched.py not found — skipping")
+        log.warning("  ingest_enriched_updated.py not found — skipping")
         return False
     result = subprocess.run(
         [sys.executable, str(script)],
@@ -147,6 +147,24 @@ def _find_csv_in_inbox() -> Path | None:
         return csvs[0]
     log.info("  No CSV in inbox yet")
     return None
+
+
+def step_run_enrich_to_excel() -> bool:
+    """
+    Run enrich_to_excel.py to bridge enriched_profiles.json → network_master.xlsx.
+    Must run AFTER the enricher and BEFORE export_to_json.
+    """
+    log.info("STEP 2b — Bridging enriched profiles to Excel")
+    script = PIPELINE_DIR / "enrich_to_excel.py"
+    if not script.exists():
+        log.warning("  enrich_to_excel.py not found — skipping bridge step")
+        return False
+    result = subprocess.run([sys.executable, str(script)], capture_output=False)
+    if result.returncode != 0:
+        log.error("  enrich_to_excel exited with code %d", result.returncode)
+        return False
+    log.info("  Bridge completed successfully")
+    return True
 
 
 def step_run_change_detector(csv_path: Path) -> bool:
@@ -201,6 +219,8 @@ def step_run_full_daily_pipeline() -> None:
     This ensures the front-end stays current even if no new CSV arrived.
     """
     log.info("STEP 5 — 4th enricher run: running full daily pipeline")
+    # Always run the bridge first to make sure Excel has latest enriched data
+    step_run_enrich_to_excel()
     csv = _find_csv_in_inbox()
     if csv:
         if step_run_change_detector(csv):
@@ -226,6 +246,12 @@ def main() -> None:
 
     # ── Step 2: Run enricher (takes ~10-15 min) ───────────────────────────────
     enricher_ok = step_run_enricher()
+
+    # ── Step 2b: Bridge enriched_profiles.json → network_master.xlsx ──────────
+    if enricher_ok:
+        step_run_enrich_to_excel()
+    else:
+        log.warning("Enricher failed — skipping bridge step")
 
     # ── Update run counter ─────────────────────────────────────────────────────
     run_count = _load_counter() + 1
