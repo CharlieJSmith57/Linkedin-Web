@@ -18,7 +18,7 @@
       "letters": "ΦΓΔ",
       "nickname": "FIJI",
       "aliases": ["FIJI", "Phi Gamma Delta", "ΦΓΔ", "Phi Gam"],
-      "colors": ["#4B2E8C", "#6B8E23"],
+      "colors": ["#4B2E8C", "#FFFFFF"],
       "color_names": ["Royal Purple", "White (trim: Gold)"],
       "type": "fraternity"
     },
@@ -28,7 +28,7 @@
       "letters": "ΣΦΕ",
       "nickname": "Sig Ep",
       "aliases": ["Sig Ep", "SigEp", "Sigma Phi Epsilon", "ΣΦΕ"],
-      "colors": ["#7B0000", "#4A1E8C"],
+      "colors": ["#990000", "#705335"],
       "color_names": ["Cardinal Red", "Purple"],
       "type": "fraternity"
     },
@@ -38,7 +38,7 @@
       "letters": "ΣΧ",
       "nickname": "Sig Chi",
       "aliases": ["Sig Chi", "Sigma Chi", "ΣΧ", "SigChi"],
-      "colors": ["#003087", "#C8B400"],
+      "colors": ["#002F6C", "#FFD100"],
       "color_names": ["Blue", "Old Gold"],
       "type": "fraternity"
     },
@@ -48,7 +48,7 @@
       "letters": "ΣΑΕ",
       "nickname": "SAE",
       "aliases": ["SAE", "Sigma Alpha Epsilon", "ΣΑΕ"],
-      "colors": ["#4B2E8C", "#C8A800"],
+      "colors": ["#4B2E8C", "#FFD100"],
       "color_names": ["Purple", "Old Gold"],
       "type": "fraternity"
     },
@@ -58,7 +58,7 @@
       "letters": "ΦΔΘ",
       "nickname": "Phi Delt",
       "aliases": ["Phi Delt", "Phi Delta Theta", "ΦΔΘ", "Phi"],
-      "colors": ["#003087", "#87CEEB"],
+      "colors": ["#FFFFFF", "#003366"],
       "color_names": ["Argent Blue", "Azure"],
       "type": "fraternity"
     },
@@ -68,7 +68,7 @@
       "letters": "ΒΘΠ",
       "nickname": "Beta",
       "aliases": ["Beta", "Beta Theta Pi", "ΒΘΠ", "Beta Theta"],
-      "colors": ["#CC0000", "#F5F5DC"],
+      "colors": ["#FFC0CB", "#1D2A44"],
       "color_names": ["Pink", "Blue"],
       "type": "fraternity"
     },
@@ -78,7 +78,7 @@
       "letters": "ΚΣ",
       "nickname": "Kappa Sig",
       "aliases": ["Kappa Sig", "Kappa Sigma", "ΚΣ"],
-      "colors": ["#003087", "#CC0000"],
+      "colors": ["#A6192E", "#00A651"],
       "color_names": ["Scarlet", "Green", "White"],
       "type": "fraternity"
     },
@@ -87,8 +87,8 @@
       "full_name": "Lambda Chi Alpha",
       "letters": "ΛΧΑ",
       "nickname": "Lambda Chi",
-      "aliases": ["Lambda Chi", "Lambda Chi Alpha", "ΛΧΑ", "Chops"],
-      "colors": ["#4B2E8C", "#C8A800"],
+      "aliases": ["Lambda Chi", "Lambda Chi Alpha", "ΛΧΑ", "Chops", "LCA"],
+      "colors": ["#4B2E8C", "#FFD100"],
       "color_names": ["Purple", "Gold", "Green"],
       "type": "fraternity"
     },
@@ -98,7 +98,7 @@
       "letters": "ΘΧ",
       "nickname": "T Chi",
       "aliases": ["Theta Chi", "ΘΧ", "T Chi", "Ox"],
-      "colors": ["#CC0000", "#F5F5DC"],
+      "colors": ["#CD1041", "#FFFFFF"],
       "color_names": ["Military Red", "White"],
       "type": "fraternity"
     },
@@ -108,7 +108,7 @@
       "letters": "ΔΤΔ",
       "nickname": "Delt",
       "aliases": ["Delt", "Delta Tau Delta", "ΔΤΔ", "DTD"],
-      "colors": ["#4B2E8C", "#C8A800"],
+      "colors": ["#1D4ED8", "#4B2E8C"],
       "color_names": ["Purple", "Gold", "White"],
       "type": "fraternity"
     },
@@ -118,7 +118,7 @@
       "letters": "ΣΝ",
       "nickname": "Sig Nu",
       "aliases": ["Sig Nu", "Sigma Nu", "ΣΝ", "Knights"],
-      "colors": ["#003087", "#C0C0C0"],
+      "colors": ["#000000", "#FFFFFF"],
       "color_names": ["Black", "White", "Gold"],
       "type": "fraternity"
     },
@@ -128,7 +128,7 @@
       "letters": "ΑΤΩ",
       "nickname": "ATO",
       "aliases": ["ATO", "Alpha Tau Omega", "ΑΤΩ", "Tau"],
-      "colors": ["#003087", "#C8A800"],
+      "colors": ["#002F6C", "#C8A800"],
       "color_names": ["Azure Blue", "Old Gold"],
       "type": "fraternity"
     },
@@ -138,7 +138,7 @@
       "letters": "ΤΚΕ",
       "nickname": "TKE",
       "aliases": ["TKE", "Tau Kappa Epsilon", "ΤΚΕ", "Teke"],
-      "colors": ["#CC0000", "#C0C0C0"],
+      "colors": ["#9E1B32", "#8A8D8F"],
       "color_names": ["Cherry Red", "Grey"],
       "type": "fraternity"
     },
@@ -148,7 +148,7 @@
       "letters": "ΦΚΨ",
       "nickname": "Phi Psi",
       "aliases": ["Phi Psi", "Phi Kappa Psi", "ΦΚΨ"],
-      "colors": ["#006400", "#CC0000"],
+      "colors": ["#004B23", "#A6192E"],
       "color_names": ["Hunter Green", "Cardinal Red"],
       "type": "fraternity"
     },
@@ -158,7 +158,7 @@
       "letters": "ΦΚΤ",
       "nickname": "Phi Tau",
       "aliases": ["Phi Tau", "Phi Kappa Tau", "ΦΚΤ"],
-      "colors": ["#CC0000", "#C8A800"],
+      "colors": ["#A6192E", "#FFD100"],
       "color_names": ["Harvard Red", "Gold"],
       "type": "fraternity"
     },
@@ -168,7 +168,7 @@
       "letters": "ΔΚΕ",
       "nickname": "Deke",
       "aliases": ["Deke", "DKE", "Delta Kappa Epsilon", "ΔΚΕ"],
-      "colors": ["#CC0000", "#003087"],
+      "colors": ["#002F6C", "#EAAA00"],
       "color_names": ["Crimson", "Blue", "Gold"],
       "type": "fraternity"
     },
@@ -178,7 +178,7 @@
       "letters": "ΠΚΦ",
       "nickname": "Pi Kapp",
       "aliases": ["Pi Kapp", "Pi Kappa Phi", "ΠΚΦ", "PKP"],
-      "colors": ["C8A800", "#003087"],
+      "colors": ["#1D2A44", "#FFD100"],
       "color_names": ["Gold", "White"],
       "type": "fraternity"
     },
@@ -188,7 +188,7 @@
       "letters": "ΣΠ",
       "nickname": "Sig Pi",
       "aliases": ["Sig Pi", "Sigma Pi", "ΣΠ"],
-      "colors": ["4B2E8C", "#C8A800"],
+      "colors": ["#E6E6FA", "#FFFFFF"],
       "color_names": ["Lavender", "White"],
       "type": "fraternity"
     },
@@ -198,7 +198,7 @@
       "letters": "ΑΕΠ",
       "nickname": "AEPi",
       "aliases": ["AEPi", "Alpha Epsilon Pi", "ΑΕΠ", "Ape"],
-      "colors": ["#003087", "#4B2E8C"],
+      "colors": ["#002F6C", "#FFD100"],
       "color_names": ["Blue", "Gold"],
       "type": "fraternity"
     },
@@ -208,7 +208,7 @@
       "letters": "ΑΣΦ",
       "nickname": "Alpha Sig",
       "aliases": ["Alpha Sig", "Alpha Sigma Phi", "ΑΣΦ"],
-      "colors": ["CC0000", "#C8A800"],
+      "colors": ["#9E1B32", "#FFFFFF"],
       "color_names": ["Scarlet", "Old Gold"],
       "type": "fraternity"
     },
@@ -218,7 +218,7 @@
       "letters": "ΑΦΑ",
       "nickname": "Alpha",
       "aliases": ["Alpha Phi Alpha", "ΑΦΑ", "APhiA"],
-      "colors": ["#003087", "#C8A800"],
+      "colors": ["#000000", "#FFD100"],
       "color_names": ["Black", "Old Gold"],
       "type": "fraternity"
     },
@@ -228,7 +228,7 @@
       "letters": "ΚΑΨ",
       "nickname": "Kappa",
       "aliases": ["Kappa Alpha Psi", "ΚΑΨ", "Krimson"],
-      "colors": ["#CC0000", "#F5F5DC"],
+      "colors": ["#CC0000", "#FFFDD0"],
       "color_names": ["Crimson", "Cream"],
       "type": "fraternity"
     },
@@ -238,7 +238,7 @@
       "letters": "ΩΨΦ",
       "nickname": "Ques",
       "aliases": ["Omega Psi Phi", "ΩΨΦ", "Ques"],
-      "colors": ["#4B2E8C", "#C8A800"],
+      "colors": ["#4B2E8C", "#FFD100"],
       "color_names": ["Royal Purple", "Old Gold"],
       "type": "fraternity"
     },
@@ -248,9 +248,269 @@
       "letters": "ΦΒΣ",
       "nickname": "Sigmas",
       "aliases": ["Phi Beta Sigma", "ΦΒΣ", "Sigmas"],
-      "colors": ["#003087", "#F5F5DC"],
+      "colors": ["#0033A0", "#FFFFFF"],
       "color_names": ["Royal Blue", "Pure White"],
       "type": "fraternity"
+    },
+    {
+      "id": "iota_phi_theta",
+      "full_name": "Iota Phi Theta",
+      "letters": "ΙΦΘ",
+      "nickname": "Iotas",
+      "aliases": ["Iota Phi Theta", "ΙΦΘ", "Iotas", "Centaurs"],
+      "colors": ["#5C4033", "#FFD100"],
+      "color_names": ["Charcoal Brown", "Gilded Gold"],
+      "type": "fraternity"
+    },
+    {
+      "id": "alpha_chi_sigma",
+      "full_name": "Alpha Chi Sigma",
+      "letters": "ΑΧΣ",
+      "nickname": "AXE",
+      "aliases": ["Alpha Chi Sigma", "ΑΧΣ", "AXE"],
+      "colors": ["#FFD100", "#003153"],
+      "color_names": ["Chrome Yellow", "Prussian Blue"],
+      "type": "professional: chemistry"
+    },
+    {
+      "id": "alpha_kappa_psi",
+      "full_name": "Alpha Kappa Psi",
+      "letters": "ΑΚΨ",
+      "nickname": "AKPsi",
+      "aliases": ["Alpha Kappa Psi", "ΑΚΨ", "AKPsi"],
+      "colors": ["#002147", "#EAAA00"],
+      "color_names": ["Navy Blue", "Gold"],
+      "type": "professional: business"
+    },
+    {
+      "id": "delta_sigma_pi",
+      "full_name": "Delta Sigma Pi",
+      "letters": "ΔΣΠ",
+      "nickname": "Deltasig",
+      "aliases": ["Delta Sigma Pi", "ΔΣΠ", "Deltasig"],
+      "colors": ["#7A0019", "#FFD100"],
+      "color_names": ["Old Gold", "Purple"],
+      "type": "professional: business"
+    },
+    {
+      "id": "theta_tau",
+      "full_name": "Theta Tau",
+      "letters": "ΘΤ",
+      "nickname": "Theta Tau",
+      "aliases": ["Theta Tau", "ΘΤ"],
+      "colors": ["#9E1B32", "#C0C0C0"],
+      "color_names": ["Dark Red", "Gold"],
+      "type": "professional: engineering"
+    },
+    {
+      "id": "triangle",
+      "full_name": "Triangle Fraternity",
+      "letters": "Δ",
+      "nickname": "Triangle",
+      "aliases": ["Triangle", "Triangle Fraternity"],
+      "colors": ["#B76E79", "#808080"],
+      "color_names": ["Old Rose", "Gray"],
+      "type": "fraternity"
+    },
+    {
+      "id": "phi_alpha_delta",
+      "full_name": "Phi Alpha Delta",
+      "letters": "ΦΑΔ",
+      "nickname": "PAD",
+      "aliases": ["Phi Alpha Delta", "ΦΑΔ", "PAD"],
+      "colors": ["#4B2E8C", "#FFD100"],
+      "color_names": ["Purple", "Gold"],
+      "type": "professional: law"
+    },
+    {
+      "id": "phi_mu_alpha",
+      "full_name": "Phi Mu Alpha Sinfonia",
+      "letters": "ΦΜΑ",
+      "nickname": "Sinfonians",
+      "aliases": ["Phi Mu Alpha", "ΦΜΑ", "Sinfonia", "Phi Mu Alpha Sinfonia"],
+      "colors": ["#CC0000", "#000000"],
+      "color_names": ["Red", "Black", "Gold"],
+      "type": "professional: music"
+    },
+    {
+      "id": "chi_phi",
+      "full_name": "Chi Phi",
+      "letters": "ΧΦ",
+      "nickname": "Chi Phi",
+      "aliases": ["Chi Phi", "ΧΦ"],
+      "colors": ["#CC0000", "#002F6C"],
+      "color_names": ["Scarlet", "Blue"],
+      "type": "fraternity"
+    },
+    {
+      "id": "phi_kappa_sigma",
+      "full_name": "Phi Kappa Sigma",
+      "letters": "ΦΚΣ",
+      "nickname": "Phi Kap",
+      "aliases": ["Phi Kappa Sigma", "ΦΚΣ", "Phi Kap", "Skulls"],
+      "colors": ["#000000", "#FFD100"],
+      "color_names": ["Black", "Old Gold"],
+      "type": "fraternity"
+    },
+    {
+      "id": "zeta_psi",
+      "full_name": "Zeta Psi",
+      "letters": "ΖΨ",
+      "nickname": "Zete",
+      "aliases": ["Zeta Psi", "ΖΨ", "Zete"],
+      "colors": ["#002F6C", "#FFFFFF"],
+      "color_names": ["White"],
+      "type": "fraternity"
+    },
+    {
+      "id": "alpha_delta_phi",
+      "full_name": "Alpha Delta Phi",
+      "letters": "ΑΔΦ",
+      "nickname": "Alpha Delt",
+      "aliases": ["Alpha Delta Phi", "ΑΔΦ", "Alpha Delt"],
+      "colors": ["#004B23", "#FFFDD0"],
+      "color_names": ["Emerald", "Pearl White"],
+      "type": "fraternity"
+    },
+    {
+      "id": "psi_upsilon",
+      "full_name": "Psi Upsilon",
+      "letters": "ΨΥ",
+      "nickname": "Psi U",
+      "aliases": ["Psi Upsilon", "ΨΥ", "Psi U"],
+      "colors": ["#7B0000", "#FFD100"],
+      "color_names": ["Garnet", "Gold"],
+      "type": "fraternity"
+    },
+    {
+      "id": "kappa_delta_rho",
+      "full_name": "Kappa Delta Rho",
+      "letters": "ΚΔΡ",
+      "nickname": "KDR",
+      "aliases": ["Kappa Delta Rho", "ΚΔΡ", "KDR"],
+      "colors": ["#003366", "#FF6600"],
+      "color_names": ["Middlebury Blue", "Princeton Orange"],
+      "type": "fraternity"
+    },
+    {
+      "id": "alpha_phi_omega",
+      "full_name": "Alpha Phi Omega",
+      "letters": "ΑΦΩ",
+      "nickname": "APO",
+      "aliases": ["Alpha Phi Omega", "ΑΦΩ", "APO"],
+      "colors": ["#0033A0", "#EAAA00"],
+      "color_names": ["Royal Blue", "Old Gold"],
+      "type": "professional: service"
+    },
+    {
+      "id": "alpha_rho_chi",
+      "full_name": "Alpha Rho Chi",
+      "letters": "ΑΡΧ",
+      "nickname": "APX",
+      "aliases": ["Alpha Rho Chi", "ΑΡΧ", "APX"],
+      "colors": ["#800020", "#101820"],
+      "color_names": ["Maroon", "Navy Blue"],
+      "type": "professional: architecture"
+    },
+    {
+      "id": "kappa_psi",
+      "full_name": "Kappa Psi",
+      "letters": "ΚΨ",
+      "nickname": "Kappa Psi",
+      "aliases": ["Kappa Psi", "ΚΨ"],
+      "colors": ["#CC0000", "#5A6B7C"],
+      "color_names": ["Scarlet Red", "Cadet Grey"],
+      "type": "professional: pharmacy"
+    },
+    {
+      "id": "rho_chi",
+      "full_name": "Rho Chi Society",
+      "letters": "ΡΧ",
+      "nickname": "Rho Chi",
+      "aliases": ["Rho Chi", "ΡΧ"],
+      "colors": ["#4B2E8C", "#FFFFFF"],
+      "color_names": ["Purple", "White"],
+      "type": "honor society: pharmacy"
+    },
+    {
+      "id": "alpha_chi_rho",
+      "full_name": "Alpha Chi Rho",
+      "letters": "ΑΧΡ",
+      "nickname": "Crows",
+      "aliases": ["Alpha Chi Rho", "ΑΧΡ", "Crows"],
+      "colors": ["#7B0000", "#FFFFFF"],
+      "color_names": ["Garnet", "White"],
+      "type": "fraternity"
+    },
+    {
+      "id": "phi_sigma_kappa",
+      "full_name": "Phi Sigma Kappa",
+      "letters": "ΦΣΚ",
+      "nickname": "Phi Sig",
+      "aliases": ["Phi Sigma Kappa", "ΦΣΚ", "Phi Sig"],
+      "colors": ["#C91F3C", "#ACACAC"],
+      "color_names": ["Cardinal Red", "Silver"],
+      "type": "fraternity"
+    },
+    {
+      "id": "phi_kappa_theta",
+      "full_name": "Phi Kappa Theta",
+      "letters": "ΦΚΘ",
+      "nickname": "Phi Kap",
+      "aliases": ["Phi Kappa Theta", "ΦΚΘ", "Phi Kap"],
+      "colors": ["#990000", "#FFD700"],
+      "color_names": ["Cardinal Purple", "Gold", "White"],
+      "type": "fraternity"
+    },
+    {
+      "id": "iota_phi_lambda",
+      "full_name": "Iota Phi Lambda",
+      "letters": "ΙΦΛ",
+      "nickname": "Iota",
+      "aliases": ["Iota Phi Lambda", "ΙΦΛ"],
+      "colors": ["#004B23", "#FFFFFF"],
+      "color_names": ["Emerald Green", "White"],
+      "type": "professional: business"
+    },
+    {
+      "id": "phi_chi_theta",
+      "full_name": "Phi Chi Theta",
+      "letters": "ΦΧΘ",
+      "nickname": "PCT",
+      "aliases": ["Phi Chi Theta", "ΦΧΘ", "PCT"],
+      "colors": ["#E6E6FA", "#FFD100"],
+      "color_names": ["Lavender", "Gold"],
+      "type": "professional: business and economics"
+    },
+    {
+      "id": "phi_gamma_nu",
+      "full_name": "Phi Gamma Nu",
+      "letters": "ΦΓΝ",
+      "nickname": "PGN",
+      "aliases": ["Phi Gamma Nu", "ΦΓΝ", "PGN"],
+      "colors": ["#9E1B32", "#FFD100"],
+      "color_names": ["Cardinal Red", "Gold"],
+      "type": "professional: business"
+    },
+    {
+      "id": "pi_sigma_epsilon",
+      "full_name": "Pi Sigma Epsilon",
+      "letters": "ΠΣΕ",
+      "nickname": "PSE",
+      "aliases": ["Pi Sigma Epsilon", "ΠΣΕ", "PSE"],
+      "colors": ["#663399", "#FFD100"],
+      "color_names": ["Amethyst", "Gold"],
+      "type": "professional: marketing and sales"
+    },
+    {
+      "id": "sigma_phi_delta",
+      "full_name": "Sigma Phi Delta",
+      "letters": "ΣΦΔ",
+      "nickname": "SPD",
+      "aliases": ["Sigma Phi Delta", "ΣΦΔ", "SPD"],
+      "colors": ["#800080", "#FFD100"],
+      "color_names": ["Purple", "Gold"],
+      "type": "professional: engineering"
     }
   ],
 
@@ -261,8 +521,8 @@
       "letters": "ΑΔΠ",
       "nickname": "ADPi",
       "aliases": ["ADPi", "Alpha Delta Pi", "ΑΔΠ", "A D Pi"],
-      "colors": ["#003087", "#006400"],
-      "color_names": ["Azure Blue", "Forest Green"],
+      "colors": ["#00A3E0", "#FFFFFF"],
+      "color_names": ["Azure Blue", "White"],
       "type": "sorority"
     },
     {
@@ -271,7 +531,7 @@
       "letters": "ΑΕΦ",
       "nickname": "AEPhi",
       "aliases": ["AEPhi", "Alpha Epsilon Phi", "ΑΕΦ", "A E Phi"],
-      "colors": ["006400", "#C8A800"],
+      "colors": ["#006B3F", "#EAAA00"],
       "color_names": ["Green", "Gold"],
       "type": "sorority"
     },
@@ -281,7 +541,7 @@
       "letters": "ΑΦ",
       "nickname": "A Phi",
       "aliases": ["Alpha Phi", "ΑΦ", "A Phi", "APhi"],
-      "colors": ["#003087", "#C0C0C0"],
+      "colors": ["#A6192E", "#C0C0C0"],
       "color_names": ["Silver", "Bordeaux"],
       "type": "sorority"
     },
@@ -291,7 +551,7 @@
       "letters": "ΑΧΩ",
       "nickname": "Alpha Chi",
       "aliases": ["Alpha Chi", "Alpha Chi Omega", "ΑΧΩ", "AXO"],
-      "colors": ["#CC0000", "#006400"],
+      "colors": ["#CC0000", "#556B2F"],
       "color_names": ["Scarlet Red", "Olive Green"],
       "type": "sorority"
     },
@@ -301,7 +561,7 @@
       "letters": "ΔΓ",
       "nickname": "DG",
       "aliases": ["DG", "Delta Gamma", "ΔΓ", "D G"],
-      "colors": ["003087", "#C0C0C0"],
+      "colors": ["#8A624A", "#FFB6C1"],
       "color_names": ["Bronze", "Pink", "Blue"],
       "type": "sorority"
     },
@@ -311,7 +571,7 @@
       "letters": "ΔΔΔ",
       "nickname": "Tri Delta",
       "aliases": ["Tri Delta", "Tri Delt", "Delta Delta Delta", "ΔΔΔ", "DDD"],
-      "colors": ["#003087", "#C8A800"],
+      "colors": ["#C0C0C0", "#FFD100"],
       "color_names": ["Silver", "Gold", "Blue"],
       "type": "sorority"
     },
@@ -321,7 +581,7 @@
       "letters": "ΔΖ",
       "nickname": "DZ",
       "aliases": ["DZ", "Delta Zeta", "ΔΖ", "D Z"],
-      "colors": ["CC0000", "#C0C0C0"],
+      "colors": ["#FF6F61", "#2E8B57"],
       "color_names": ["Rose", "Nile Green"],
       "type": "sorority"
     },
@@ -331,7 +591,7 @@
       "letters": "ΓΦΒ",
       "nickname": "Gamma Phi",
       "aliases": ["Gamma Phi", "Gamma Phi Beta", "ΓΦΒ"],
-      "colors": ["#4B2E8C", "#C0C0C0"],
+      "colors": ["#4A2c11", "#967117"],
       "color_names": ["Brown", "Mode"],
       "type": "sorority"
     },
@@ -341,7 +601,7 @@
       "letters": "ΚΑΘ",
       "nickname": "Theta",
       "aliases": ["Theta", "Kappa Alpha Theta", "ΚΑΘ", "KAT"],
-      "colors": ["000000", "#C8A800"],
+      "colors": ["#000000", "#FFD100"],
       "color_names": ["Black", "Gold"],
       "type": "sorority"
     },
@@ -351,7 +611,7 @@
       "letters": "ΚΔ",
       "nickname": "KD",
       "aliases": ["KD", "Kappa Delta", "ΚΔ", "K D"],
-      "colors": ["#006400", "#F5F5DC"],
+      "colors": ["#006B3F", "#FFFDD0"],
       "color_names": ["Olive Green", "Pearl White"],
       "type": "sorority"
     },
@@ -361,7 +621,7 @@
       "letters": "ΚΚΓ",
       "nickname": "Kappa",
       "aliases": ["Kappa", "KKG", "Kappa Kappa Gamma", "ΚΚΓ", "K K G"],
-      "colors": ["#003087", "#C8A800"],
+      "colors": ["#41748D", "#1F3A52"],
       "color_names": ["Light Blue", "Dark Blue"],
       "type": "sorority"
     },
@@ -371,7 +631,7 @@
       "letters": "ΠΒΦ",
       "nickname": "Pi Phi",
       "aliases": ["Pi Phi", "Pi Beta Phi", "ΠΒΦ", "PBP"],
-      "colors": ["#1E90FF", "#C0C0C0"],
+      "colors": ["#722F37", "#87CEEB"],
       "color_names": ["Wine", "Silver Blue"],
       "type": "sorority"
     },
@@ -381,7 +641,7 @@
       "letters": "ΖΤΑ",
       "nickname": "Zeta",
       "aliases": ["Zeta", "ZTA", "Zeta Tau Alpha", "ΖΤΑ"],
-      "colors": ["#003087", "#C8A800"],
+      "colors": ["#31B2CA", "#8A9EA7"],
       "color_names": ["Turquoise Blue", "Steel Grey"],
       "type": "sorority"
     },
@@ -391,7 +651,7 @@
       "letters": "ΣΚ",
       "nickname": "Sig Kap",
       "aliases": ["Sig Kap", "Sigma Kappa", "ΣΚ", "SK"],
-      "colors": ["#4B2E8C", "#FFC0CB"],
+      "colors": ["#E6E6FA", "#800000"],
       "color_names": ["Lavender", "Maroon"],
       "type": "sorority"
     },
@@ -401,7 +661,7 @@
       "letters": "ΧΩ",
       "nickname": "Chi O",
       "aliases": ["Chi O", "Chi Omega", "ΧΩ", "XO"],
-      "colors": ["#CC0000", "#C8A800"],
+      "colors": ["#9E1B32", "#E4D00A"],
       "color_names": ["Cardinal", "Straw"],
       "type": "sorority"
     },
@@ -411,9 +671,309 @@
       "letters": "ΔΣΘ",
       "nickname": "Deltas",
       "aliases": ["Delta Sigma Theta", "ΔΣΘ", "Deltas", "DST"],
-      "colors": ["#CC0000", "#F5F5DC"],
+      "colors": ["#CC0000", "#FFFDD0"],
       "color_names": ["Crimson", "Cream"],
       "type": "sorority"
+    },
+    {
+      "id": "alpha_kappa_aka",
+      "full_name": "Alpha Kappa Alpha",
+      "letters": "ΑΚΑ",
+      "nickname": "AKA",
+      "aliases": ["Alpha Kappa Alpha", "ΑΚΑ", "AKA"],
+      "colors": ["#FFB6C1", "#4A773C"],
+      "color_names": ["Salmon Pink", "Apple Green"],
+      "type": "sorority"
+    },
+    {
+      "id": "zeta_phi_beta",
+      "full_name": "Zeta Phi Beta",
+      "letters": "ΖΦΒ",
+      "nickname": "Zetas",
+      "aliases": ["Zeta Phi Beta", "ΖΦΒ", "Zetas"],
+      "colors": ["#0033A0", "#FFFFFF"],
+      "color_names": ["Royal Blue", "White"],
+      "type": "sorority"
+    },
+    {
+      "id": "sigma_gamma_rho",
+      "full_name": "Sigma Gamma Rho",
+      "letters": "ΣΓΡ",
+      "nickname": "SGRho",
+      "aliases": ["Sigma Gamma Rho", "ΣΓΡ", "SGRho"],
+      "colors": ["#0033A0", "#FFD100"],
+      "color_names": ["Royal Blue", "Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "sigma_alpha_iota",
+      "full_name": "Sigma Alpha Iota",
+      "letters": "ΣΑΙ",
+      "nickname": "SAI",
+      "aliases": ["Sigma Alpha Iota", "ΣΑΙ", "SAI"],
+      "colors": ["#CC0000", "#FFFFFF"],
+      "color_names": ["Crimson", "White"],
+      "type": "professional: music"
+    },
+    {
+      "id": "phi_sigma_rho",
+      "full_name": "Phi Sigma Rho",
+      "letters": "ΦΣΡ",
+      "nickname": "Phi Rho",
+      "aliases": ["Phi Sigma Rho", "ΦΣΡ", "Phi Rho"],
+      "colors": ["#9E1B32", "#C0C0C0"],
+      "color_names": ["Wine Red", "Silver"],
+      "type": "sorority"
+    },
+    {
+      "id": "phi_beta_kappa",
+      "full_name": "Phi Beta Kappa",
+      "letters": "ΦΒΚ",
+      "nickname": "PBK",
+      "aliases": ["Phi Beta Kappa", "ΦΒΚ", "PBK"],
+      "colors": ["#FFC0CB", "#002F6C"],
+      "color_names": ["Pink", "Blue"],
+      "type": "honor society: liberal arts and sciences"
+    },
+    {
+      "id": "tau_beta_pi",
+      "full_name": "Tau Beta Pi",
+      "letters": "ΤΒΠ",
+      "nickname": "Tau Beta Pi",
+      "aliases": ["Tau Beta Pi", "ΤΒΠ"],
+      "colors": ["#4A2c11", "#FFFFFF"],
+      "color_names": ["Seal Brown", "White"],
+      "type": "honor society: engineering"
+    },
+    {
+      "id": "phi_kappa_phi",
+      "full_name": "Phi Kappa Phi",
+      "letters": "ΦΚΦ",
+      "nickname": "Phi Kappa Phi",
+      "aliases": ["Phi Kappa Phi", "ΦΚΦ"],
+      "colors": ["#002F6C", "#FFD100"],
+      "color_names": ["Navy Blue", "Gold"],
+      "type": "honor society: all-discipline"
+    },
+    {
+      "id": "delta_phi_epsilon",
+      "full_name": "Delta Phi Epsilon",
+      "letters": "ΔΦΕ",
+      "nickname": "DPhiE",
+      "aliases": ["Delta Phi Epsilon", "ΔΦΕ", "DPhiE"],
+      "colors": ["#4B2E8C", "#FFD100"],
+      "color_names": ["Royal Purple", "Pure Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_sigma_tau",
+      "full_name": "Alpha Sigma Tau",
+      "letters": "ΑΣΤ",
+      "nickname": "AST",
+      "aliases": ["Alpha Sigma Tau", "ΑΣΤ", "AST"],
+      "colors": ["#004B23", "#FFD100"],
+      "color_names": ["Emerald Green", "Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_sigma_alpha",
+      "full_name": "Alpha Sigma Alpha",
+      "letters": "ΑΣΑ",
+      "nickname": "ASA",
+      "aliases": ["Alpha Sigma Alpha", "ΑΣΑ", "ASA"],
+      "colors": ["#CC0000", "#FFFFFF"],
+      "color_names": ["Crimson", "Pearl White", "Palm Green", "Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_omicro_pi",
+      "full_name": "Alpha Omicron Pi",
+      "letters": "ΑΟΠ",
+      "nickname": "AOII",
+      "aliases": ["Alpha Omicron Pi", "ΑΟΠ", "AOII"],
+      "colors": ["#C41E3A", "#FFFFFF"],
+      "color_names": ["Cardinal"],
+      "type": "sorority"
+    },
+    {
+      "id": "theta_phi_alpha",
+      "full_name": "Theta Phi Alpha",
+      "letters": "ΘΦΑ",
+      "nickname": "Theta Phi",
+      "aliases": ["Theta Phi Alpha", "ΘΦΑ", "Theta Phi"],
+      "colors": ["#C0C0C0", "#FFD100"],
+      "color_names": ["Silver", "Gold", "Sapphire Blue"],
+      "type": "sorority"
+    },
+    {
+      "id": "gamma_eta",
+      "full_name": "Gamma Eta Sorority",
+      "letters": "ΓΗ",
+      "nickname": "Gamma Eta",
+      "aliases": ["Gamma Eta Sorority", "ΓΗ"],
+      "colors": ["#4B2E8C", "#008080"],
+      "color_names": ["Purple", "Teal"],
+      "type": "sorority"
+    },
+    {
+      "id": "kappa_beta_gamma",
+      "full_name": "Kappa Beta Gamma",
+      "letters": "ΚΒΓ",
+      "nickname": "KBG",
+      "aliases": ["Kappa Beta Gamma", "ΚΒΓ", "KBG"],
+      "colors": ["#0F52BA", "#FFD100"],
+      "color_names": ["Deep Sapphire", "Old Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_omega_epsilon",
+      "full_name": "Alpha Omega Epsilon",
+      "letters": "ΑΩΕ",
+      "nickname": "AOE",
+      "aliases": ["Alpha Omega Epsilon", "ΑΩΕ", "AOE"],
+      "colors": ["#FFFFFF", "#C0C0C0"],
+      "color_names": ["White", "Silver", "Royal Blue"],
+      "type": "professional: engineering and technical science"
+    },
+    {
+      "id": "eta_kappa_nu",
+      "full_name": "IEEE-Eta Kappa Nu",
+      "letters": "ΗΚΝ",
+      "nickname": "HKN",
+      "aliases": ["Eta Kappa Nu", "ΗΚΝ", "HKN"],
+      "colors": ["#002F6C", "#FFD100"],
+      "color_names": ["Navy Blue", "Scarlet"],
+      "type": "honor society: electrical and computer engineering"
+    },
+    {
+      "id": "pi_tau_sigma",
+      "full_name": "Pi Tau Sigma",
+      "letters": "ΠΤΣ",
+      "nickname": "Pi Tau Sigma",
+      "aliases": ["Pi Tau Sigma", "ΠΤΣ"],
+      "colors": ["#7B0000", "#007FFF"],
+      "color_names": ["Muron", "Azure"],
+      "type": "honor society: mechanical engineering"
+    },
+    {
+      "id": "chi_epsilon",
+      "full_name": "Chi Epsilon",
+      "letters": "ΧΕ",
+      "nickname": "Chi Ep",
+      "aliases": ["Chi Epsilon", "ΧΕ"],
+      "colors": ["#800080", "#FFFFFF"],
+      "color_names": ["Purple", "White"],
+      "type": "honor society: civil engineering"
+    },
+    {
+      "id": "alpha_pi_mu",
+      "full_name": "Alpha Pi Mu",
+      "letters": "ΑΠΜ",
+      "nickname": "Alpha Pi Mu",
+      "aliases": ["Alpha Pi Mu", "ΑΠΜ"],
+      "colors": ["#9E1B32", "#FFFFFF"],
+      "color_names": ["Crimson", "White"],
+      "type": "honor society: industrial engineering"
+    },
+    {
+      "id": "omega_chi_epsilon",
+      "full_name": "Omega Chi Epsilon",
+      "letters": "ΩΧΕ",
+      "nickname": "Omega Chi",
+      "aliases": ["Omega Chi Epsilon", "ΩΧΕ"],
+      "colors": ["#800020", "#FFFFFF"],
+      "color_names": ["Maroon", "White"],
+      "type": "honor society: chemical engineering"
+    },
+    {
+      "id": "beta_gamma_sigma",
+      "full_name": "Beta Gamma Sigma",
+      "letters": "ΒΓΣ",
+      "nickname": "BGS",
+      "aliases": ["Beta Gamma Sigma", "ΒΓΣ", "BGS"],
+      "colors": ["#003366", "#FFD100"],
+      "color_names": ["Blue", "Gold"],
+      "type": "honor society: business"
+    },
+    {
+      "id": "phi_sigma_sigma",
+      "full_name": "Phi Sigma Sigma",
+      "letters": "ΦΣΣ",
+      "nickname": "Phi Sig",
+      "aliases": ["Phi Sigma Sigma", "ΦΣΣ", "Phi Sig"],
+      "colors": ["#0047AB", "#FFD700"],
+      "color_names": ["King Blue", "Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_gamma_delta",
+      "full_name": "Alpha Gamma Delta",
+      "letters": "ΑΓΔ",
+      "nickname": "Alpha Gam",
+      "aliases": ["Alpha Gamma Delta", "ΑΓΔ", "Alpha Gam"],
+      "colors": ["#CC0000", "#F2E5BF"],
+      "color_names": ["Red", "Buff", "Green"],
+      "type": "sorority"
+    },
+    {
+      "id": "alpha_xi_delta",
+      "full_name": "Alpha Xi Delta",
+      "letters": "ΑΞΔ",
+      "nickname": "AxiD",
+      "aliases": ["Alpha Xi Delta", "ΑΞΔ", "AxiD"],
+      "colors": ["#003087", "#FFD700"],
+      "color_names": ["Double Blue", "Gold"],
+      "type": "sorority"
+    },
+    {
+      "id": "theta_nu_xi",
+      "full_name": "Theta Nu Xi",
+      "letters": "ΘΝΞ",
+      "nickname": "Butterflies",
+      "aliases": ["Theta Nu Xi", "ΘΝΞ", "TNX"],
+      "colors": ["#E6E6FA", "#7B99CB"],
+      "color_names": ["Lavender", "Carolina Blue", "Black"],
+      "type": "sorority"
+    },
+    {
+      "id": "lambda_kappa_mu",
+      "full_name": "Lambda Kappa Mu",
+      "letters": "ΛΚΜ",
+      "nickname": "LKM",
+      "aliases": ["Lambda Kappa Mu", "ΛΚΜ"],
+      "colors": ["#0033A0", "#FFD100"],
+      "color_names": ["Blue", "Gold"],
+      "type": "professional: business"
+    },
+    {
+      "id": "lambda_epsilon_chi",
+      "full_name": "Lambda Epsilon Chi",
+      "letters": "ΛΕΧ",
+      "nickname": "LEX",
+      "aliases": ["Lambda Epsilon Chi", "ΛΕΧ"],
+      "colors": ["#002F6C", "#800020"],
+      "color_names": ["Blue", "Maroon"],
+      "type": "honor society: paralegal"
+    },
+    {
+      "id": "mu_beta_psi",
+      "full_name": "Mu Beta Psi",
+      "letters": "ΜΒΨ",
+      "nickname": "Psi",
+      "aliases": ["Mu Beta Psi", "ΜΒΨ"],
+      "colors": ["#CC0000", "#002F6C"],
+      "color_names": ["Red", "Blue"],
+      "type": "professional: music"
+    },
+    {
+      "id": "nu_beta_epsilon",
+      "full_name": "Nu Beta Epsilon",
+      "letters": "ΝΒΕ",
+      "nickname": "Nu Beta",
+      "aliases": ["Nu Beta Epsilon", "ΝΒΕ"],
+      "colors": ["#002F6C", "#FFFFFF"],
+      "color_names": ["Blue", "White"],
+      "type": "professional: law"
     }
   ]
 }

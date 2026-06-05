@@ -191,6 +191,11 @@ body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;c
       <label style="font-size:10px;color:var(--text-3)">PE only</label>
       <input type="checkbox" id="pe-filter" onchange="applyFilters()">
     </div>
+    <div style="padding:2px 12px 6px;flex-shrink:0">
+      <select id="cert-filter" onchange="applyFilters()" style="width:100%;font-size:11px;padding:3px 6px;background:var(--bg-hover);border:1px solid var(--border);border-radius:5px;color:var(--text-1);outline:none">
+        <option value="">All certifications</option>
+      </select>
+    </div>
     <div class="srch"><input id="srch" type="text" placeholder="Search name, company, discipline…" oninput="onSearch(this.value)"></div>
     <div class="sec-label">Connections</div>
     <div id="conn-list"></div>
@@ -207,6 +212,7 @@ body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;c
         <span id="data-stamp"></span>
         <button class="tb-btn" onclick="showMergePanel()">⊕ Merge companies</button>
         <button class="tb-btn" onclick="exportCompanyList()" title="Copy company list for Claude to categorize">📋 Company list</button>
+        <button class="tb-btn" onclick="showCertPanel()">🏅 Certifications</button>
         <button class="tb-btn" onclick="showGreekPanel()">⚑ Greek life</button>
         <button class="tb-btn" onclick="showNotifPanel()" id="notif-btn">
           🔔 Notifications
@@ -243,6 +249,50 @@ body{font-family:var(--font);background:var(--bg);overflow:hidden;height:100vh;c
   <div id="detail">
     <div id="det-close" onclick="closeDetail()">✕</div>
     <div id="det-body"></div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS PANEL -->
+<div class="overlay" id="cert-overlay" onclick="closeOverlay('cert')">
+  <div class="panel" style="width:540px" onclick="event.stopPropagation()">
+    <div class="panel-head">
+      <h2>🏅 Certifications &amp; credentials</h2>
+      <button class="panel-close" onclick="closeOverlay('cert')">✕</button>
+    </div>
+    <div class="panel-body">
+      <p style="font-size:11.5px;color:var(--text-2);margin-bottom:12px;line-height:1.5">
+        Manually tag connections with professional certifications. Tags are stored locally and
+        merge with auto-detected certs once the enricher runs.
+      </p>
+      <div style="display:flex;gap:8px;margin-bottom:8px">
+        <div style="flex:1">
+          <label class="form-label">Connection</label>
+          <input type="text" id="cert-person-search" placeholder="Type name to search…"
+            oninput="certPersonSearch(this.value)"
+            style="width:100%;font-size:12px;padding:5px 8px;border:1px solid var(--border);border-radius:5px;background:var(--bg-hover);color:var(--text-1);outline:none">
+          <div id="cert-person-results" style="max-height:120px;overflow-y:auto;border:1px solid var(--border);border-top:none;border-radius:0 0 5px 5px;background:var(--bg-panel);display:none"></div>
+        </div>
+        <div style="flex:1">
+          <label class="form-label">Certification</label>
+          <select id="cert-name-select" style="width:100%;font-size:12px;padding:5px 8px;border:1px solid var(--border);border-radius:5px;background:var(--bg-hover);color:var(--text-1);outline:none">
+            <option value="">Select cert…</option>
+          </select>
+        </div>
+      </div>
+      <div id="cert-selected-person" style="font-size:11px;color:var(--blue);margin-bottom:6px;min-height:16px"></div>
+      <button class="btn-primary" onclick="addCertTag()" style="width:100%;margin-bottom:16px">Add certification tag</button>
+
+      <div class="sec-label" style="padding:0 0 6px">Tagged connections</div>
+      <div style="margin-bottom:6px">
+        <input type="text" id="cert-tag-search" placeholder="Filter tagged connections…" oninput="renderCertTagList(this.value)"
+          style="width:100%;font-size:11px;padding:4px 8px;border:1px solid var(--border);border-radius:5px;background:var(--bg-hover);color:var(--text-1);outline:none">
+      </div>
+      <div id="cert-tag-list" style="max-height:260px;overflow-y:auto"></div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn-ghost" onclick="exportCertCSV()" title="Export cert tags as CSV">⬇ Export CSV</button>
+      <button class="btn-ghost" onclick="closeOverlay('cert')">Done</button>
+    </div>
   </div>
 </div>
 
@@ -338,8 +388,8 @@ const DATA_URL = './data/network.json';
 // Overrides stored in localStorage (since we can't write files from GitHub Pages)
 // Keys: 'merges' = {alias: canonical}, 'reassignments' = {id: company}, 'pending' = []
 function getOverrides() {
-  try { return JSON.parse(localStorage.getItem('network_overrides') || '{"merges":{},"reassignments":{},"pending":[]}'); }
-  catch { return {merges:{},reassignments:{},pending:[]}; }
+  try { return JSON.parse(localStorage.getItem('network_overrides') || '{"merges":{},"reassignments":{},"pending":[],"cert_overrides":{},"greek_merges":{}}'); }
+  catch { return {merges:{},reassignments:{},pending:[],cert_overrides:{},greek_merges:{}}; }
 }
 function saveOverrides(o) { localStorage.setItem('network_overrides', JSON.stringify(o)); }
 
@@ -428,6 +478,7 @@ function init(){
   populateMergeSelects();
   renderMergeList();
   renderNotifBadge();
+  populateCertFilter();
   initNetwork();
 }
 
@@ -466,8 +517,19 @@ function buildOverlapSelect(){
 function onSearch(q){srchQ=q.toLowerCase();applyFilters();}
 function applyFilters(){
   peOnly=document.getElementById('pe-filter').checked;
+  const certFilter=(document.getElementById('cert-filter')||{}).value||'';
+  const o=getOverrides();
+  const certOverrides=o.cert_overrides||{};
   FILTERED=ALL.filter(c=>{
     if(peOnly&&!c.is_pe)return false;
+    if(certFilter){
+      const pipeline=c.certifications||{};
+      const manual=certOverrides[c.id]||{};
+      const all=Object.assign({},pipeline,manual);
+      // PE is also a cert filter option
+      if(certFilter==='PE'){if(!c.is_pe&&!all['PE'])return false;}
+      else if(!all[certFilter])return false;
+    }
     if(!srchQ)return true;
     return `${c.first} ${c.last} ${c.current_company} ${c.discipline} ${c.discipline_family} ${c.school} ${c.industry}`.toLowerCase().includes(srchQ);
   });
@@ -1090,9 +1152,13 @@ function certBadges(c, fontSize=''){
   const fs=fontSize?`font-size:${fontSize};`:'';
   let html='';
   if(c.is_pe) html+=`<span class="pe-badge" style="${fs}">PE<\/span>`;
-  const certs=c.certifications||{};
-  Object.entries(certs).forEach(([name,val])=>{
-    if(val) html+=`<span class="pe-badge" style="${fs}background:#F0F4E8;color:#3A5A10;border-color:#B8D080">${name}<\/span>`;
+  // Merge pipeline-detected certs with manually-added overrides
+  const pipelineCerts=c.certifications||{};
+  const o=getOverrides();
+  const manualCerts=o.cert_overrides?.[c.id]||{};
+  const allCerts=Object.assign({},pipelineCerts,manualCerts);
+  Object.entries(allCerts).forEach(([name,val])=>{
+    if(val&&name!=='PE') html+=`<span class="pe-badge" style="${fs}background:#F0F4E8;color:#3A5A10;border-color:#B8D080">${name}<\/span>`;
   });
   return html;
 }
@@ -1172,7 +1238,17 @@ function parseGreekEntry(raw) {
 }
 
 function getGreekEntries(c) {
-  return (c.greek_orgs || []).map(parseGreekEntry).filter(Boolean);
+  // Primary: manually curated greek_orgs array (from enricher or overrides)
+  const manual = (c.greek_orgs || []).map(parseGreekEntry).filter(Boolean);
+  if (manual.length) return manual;
+  // Fallback: auto-detected greek_org_ids from enricher (comma-separated org ids)
+  if (c.greek_org_ids) {
+    return c.greek_org_ids.split(',').map(s => s.trim()).filter(Boolean).map(orgId => {
+      const org = GREEK_DB_ALL.find(x => x.id === orgId);
+      return org ? { org, chapter_name: '', school: '' } : null;
+    }).filter(Boolean);
+  }
+  return [];
 }
 
 // Apply saved greek merges to alias map on load
@@ -1352,6 +1428,163 @@ function highlightGreekChapter(orgId, chapterName, school){
     return entries.some(e=>e.org.id===orgId&&e.chapter_name.toLowerCase()===chapterName.toLowerCase());
   }).map(c=>c.id);
   if(memberIds.length) setTimeout(()=>zoomToCluster(memberIds), 300);
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CERTIFICATIONS TAGGING SYSTEM
+// ═══════════════════════════════════════════════════════════════
+
+const CERT_NAMES = [
+  'PE','PMP','CPA','MBA','EIT','LEED','Six Sigma','CFA','CEM','CISSP','CEH',
+  'AWS','Azure','Scrum / Agile','CAPM','PHR','CFP','CISA','CISM','FE','SE',
+  'GC License','NICET','OSHA 30','OSHA 10','ACSM','ATC','EMT','CNA','CCNA',
+  'CompTIA','Cx','CDT','AICP','WELL AP','CRO','Actuarial'
+];
+
+function populateCertFilter(){
+  const sel=document.getElementById('cert-filter');
+  if(!sel) return;
+  // Clear all but the first option
+  while(sel.options.length>1)sel.remove(1);
+  CERT_NAMES.forEach(n=>{sel.appendChild(new Option(n,n));});
+}
+
+let _certSelectedId=null;
+
+function showCertPanel(){
+  // Populate cert select
+  const sel=document.getElementById('cert-name-select');
+  sel.innerHTML='<option value="">Select cert…<\/option>';
+  CERT_NAMES.forEach(n=>sel.appendChild(new Option(n,n)));
+  // Reset state
+  _certSelectedId=null;
+  document.getElementById('cert-person-search').value='';
+  document.getElementById('cert-selected-person').textContent='';
+  document.getElementById('cert-person-results').style.display='none';
+  renderCertTagList('');
+  document.getElementById('cert-tag-search').value='';
+  document.getElementById('cert-overlay').classList.add('on');
+}
+
+function certPersonSearch(q){
+  const box=document.getElementById('cert-person-results');
+  if(!q||q.length<2){box.style.display='none';return;}
+  const ql=q.toLowerCase();
+  const matches=ALL.filter(c=>`${c.first} ${c.last}`.toLowerCase().includes(ql)).slice(0,8);
+  if(!matches.length){box.style.display='none';return;}
+  box.innerHTML=matches.map(c=>`
+    <div onclick="certSelectPerson('${c.id}')"
+      style="padding:5px 9px;font-size:12px;cursor:pointer;border-bottom:1px solid var(--border);transition:background .1s"
+      onmouseover="this.style.background='var(--bg-hover)'" onmouseout="this.style.background=''">
+      <strong>${c.first} ${c.last}<\/strong>
+      <span style="font-size:10.5px;color:var(--text-3);margin-left:6px">${c.current_company||''}<\/span>
+    <\/div>`).join('');
+  box.style.display='block';
+}
+
+function certSelectPerson(id){
+  _certSelectedId=id;
+  const c=ALL.find(x=>x.id===id);
+  document.getElementById('cert-person-search').value=c?`${c.first} ${c.last}`:'';
+  document.getElementById('cert-person-results').style.display='none';
+  // Show existing certs for this person
+  const o=getOverrides();
+  const existing=Object.keys(o.cert_overrides?.[id]||{}).join(', ')||'none';
+  const pipeExisting=Object.entries(c?.certifications||{}).filter(([,v])=>v).map(([k])=>k).join(', ')||'none';
+  document.getElementById('cert-selected-person').textContent=
+    `Pipeline certs: ${pipeExisting} | Manual tags: ${existing}`;
+}
+
+function addCertTag(){
+  const certName=document.getElementById('cert-name-select').value;
+  if(!_certSelectedId||!certName){alert('Select a connection and a certification.');return;}
+  const o=getOverrides();
+  if(!o.cert_overrides) o.cert_overrides={};
+  if(!o.cert_overrides[_certSelectedId]) o.cert_overrides[_certSelectedId]={};
+  o.cert_overrides[_certSelectedId][certName]=true;
+  saveOverrides(o);
+  // Update the in-memory ALL entry so certBadges() picks it up immediately
+  // (certBadges reads from overrides each call, so no in-memory patch needed)
+  buildConnList();
+  renderCertTagList(document.getElementById('cert-tag-search').value);
+  // Refresh selected person display
+  certSelectPerson(_certSelectedId);
+  // Refresh detail panel if open
+  if(selectedId===_certSelectedId){const c=ALL.find(x=>x.id===selectedId);if(c)openDetail(c);}
+}
+
+function removeCertTag(personId, certName){
+  const o=getOverrides();
+  if(o.cert_overrides?.[personId]){
+    delete o.cert_overrides[personId][certName];
+    if(!Object.keys(o.cert_overrides[personId]).length) delete o.cert_overrides[personId];
+  }
+  saveOverrides(o);
+  buildConnList();
+  renderCertTagList(document.getElementById('cert-tag-search').value);
+  if(selectedId===personId){const c=ALL.find(x=>x.id===selectedId);if(c)openDetail(c);}
+}
+
+function renderCertTagList(filterQ){
+  const o=getOverrides();
+  const overrides=o.cert_overrides||{};
+  const el=document.getElementById('cert-tag-list');
+  if(!el) return;
+  const q=(filterQ||'').toLowerCase();
+  const entries=Object.entries(overrides)
+    .map(([id,certs])=>{
+      const c=ALL.find(x=>x.id===id);
+      return c?{c,certs}:null;
+    })
+    .filter(Boolean)
+    .filter(({c,certs})=>{
+      if(!q) return true;
+      const certStr=Object.keys(certs).join(' ').toLowerCase();
+      return `${c.first} ${c.last} ${certStr}`.includes(q);
+    })
+    .sort((a,b)=>a.c.last.localeCompare(b.c.last));
+  if(!entries.length){
+    el.innerHTML='<div style="font-size:11px;color:var(--text-3);padding:8px 0">No cert tags yet.<\/div>';
+    return;
+  }
+  el.innerHTML=entries.map(({c,certs})=>{
+    const certTags=Object.entries(certs).filter(([,v])=>v).map(([name])=>
+      `<span style="display:inline-flex;align-items:center;gap:3px;font-size:10px;padding:1px 6px;border-radius:10px;background:#F0F4E8;color:#3A5A10;border:1px solid #B8D080;margin:1px">
+        ${name}
+        <span onclick="removeCertTag('${c.id}','${name}')" style="cursor:pointer;color:#B52B2B;font-size:11px;line-height:1;margin-left:1px" title="Remove">×<\/span>
+      <\/span>`
+    ).join('');
+    return `<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border)">
+      <div onclick="selectNodeAndClose('${c.id}')" style="flex:1;cursor:pointer">
+        <div style="font-size:12px;font-weight:500">${c.first} ${c.last}<\/div>
+        <div style="font-size:10.5px;color:var(--text-3)">${c.current_company||'—'}<\/div>
+      <\/div>
+      <div style="display:flex;flex-wrap:wrap;gap:2px;justify-content:flex-end;max-width:220px">${certTags}<\/div>
+    <\/div>`;
+  }).join('');
+}
+
+function selectNodeAndClose(id){
+  closeOverlay('cert');
+  selectNode(id);
+}
+
+function exportCertCSV(){
+  const o=getOverrides();
+  const overrides=o.cert_overrides||{};
+  const rows=[['connection_id','first','last','current_company','certifications']];
+  Object.entries(overrides).forEach(([id,certs])=>{
+    const c=ALL.find(x=>x.id===id);
+    if(!c)return;
+    const certStr=Object.entries(certs).filter(([,v])=>v).map(([k])=>k).join('; ');
+    rows.push([id,c.first,c.last,c.current_company||'',certStr]);
+  });
+  const csv=rows.map(r=>r.map(v=>`"${(v||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='cert_tags.csv';
+  a.click();
 }
 
 // ═══════════════════════════════════════════════════════════════

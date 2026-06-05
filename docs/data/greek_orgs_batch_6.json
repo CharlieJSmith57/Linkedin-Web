@@ -1,0 +1,5386 @@
+{
+  "batch": 6,
+  "description": "NPHC Divine Nine historically Black fraternities and sororities (collegiate chapters only — graduate/alumni chapters excluded) plus Theta Delta Chi. NPHC orgs maintain many additional graduate chapters not listed here.",
+  "sort_note": "Orgs sorted highest active_chapters first for fastest alias lookup",
+  "orgs": [
+    {
+      "id": "alpha_kappa_alpha",
+      "full_name": "Alpha Kappa Alpha",
+      "letters": "ΑΚΑ",
+      "active_chapters": 138,
+      "note": "Collegiate chapters only; graduate chapters use Omega suffix and are not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Chicago Citywide (University of Chicago)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "Butler University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Eta",
+          "school": "University of Kansas",
+          "status": "active",
+          "abbrev": "KU"
+        },
+        {
+          "chapter": "Theta",
+          "school": "University of Cincinnati",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Shaw University",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Wilberforce University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Rust College",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Tougaloo College",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Omega",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Talladega College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "University of Minnesota",
+          "status": "active",
+          "abbrev": "UMinn"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Syracuse University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "University of Pittsburgh",
+          "status": "active",
+          "abbrev": "Pitt"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Meharry Medical College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Arkansas AM&N College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Bennett College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Georgia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Johnson C. Smith University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "University of Southern California",
+          "status": "active",
+          "abbrev": "USC"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "Spelman College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Coppin State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Virginia Union University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Paine College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "Lincoln University (MO)",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Philander Smith College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Florida Memorial University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "Howard University (graduate medical)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Knoxville College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Stillman College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Claflin University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "University of Denver",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "Voorhees College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "Tuskegee University (School of Nursing)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "Loyola University New Orleans",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Omicron",
+          "school": "Miles College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "Benedict College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "Ball State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Tau",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "Xavier University of Louisiana (graduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "Central State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Chi",
+          "school": "Virginia Commonwealth University",
+          "status": "active",
+          "abbrev": "VCU"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "Ohio University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "Georgia Institute of Technology",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Delta Zeta",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Eta",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Delta Theta",
+          "school": "Loyola University Chicago",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Iota",
+          "school": "Southern University at New Orleans",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Kappa",
+          "school": "Tennessee State University (Nashville campus)",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Lambda",
+          "school": "Florida A&M University (College of Pharmacy)",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Delta Mu",
+          "school": "Prairie View A&M University (graduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Nu",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Delta Xi",
+          "school": "Southeastern Louisiana University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Omicron",
+          "school": "Northwestern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Pi",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Delta Rho",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Delta Sigma",
+          "school": "Alabama A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Tau",
+          "school": "Clark Atlanta University (graduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Upsilon",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Delta Phi",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Delta Chi",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Delta Psi",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Epsilon Alpha",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Epsilon Beta",
+          "school": "Howard University (undergraduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Gamma",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Epsilon Delta",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Epsilon Epsilon",
+          "school": "University of Arizona",
+          "status": "active",
+          "abbrev": "UA"
+        },
+        {
+          "chapter": "Epsilon Zeta",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Epsilon Eta",
+          "school": "University of Miami",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Theta",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Iota",
+          "school": "Harvard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Kappa",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Lambda",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Epsilon Mu",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Nu",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Epsilon Xi",
+          "school": "University of Louisville",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Omicron",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Epsilon Pi",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Epsilon Rho",
+          "school": "Howard University (law)",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Sigma",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Epsilon Tau",
+          "school": "Vanderbilt University",
+          "status": "active",
+          "abbrev": "Vanderbilt"
+        },
+        {
+          "chapter": "Epsilon Upsilon",
+          "school": "Ohio State University (graduate)",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Epsilon Phi",
+          "school": "Boston University",
+          "status": "active",
+          "abbrev": "BU"
+        },
+        {
+          "chapter": "Epsilon Chi",
+          "school": "Emory University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Psi",
+          "school": "University of Pennsylvania (graduate)",
+          "status": "active",
+          "abbrev": "Penn"
+        }
+      ]
+    },
+    {
+      "id": "alpha_phi_alpha",
+      "full_name": "Alpha Phi Alpha",
+      "letters": "ΑΦΑ",
+      "active_chapters": 135,
+      "note": "Collegiate chapters only; alumni chapters designated with Lambda prefix not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "Virginia Union University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Columbia University",
+          "status": "active",
+          "abbrev": "Columbia"
+        },
+        {
+          "chapter": "Theta",
+          "school": "University of Illinois Chicago",
+          "status": "active"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Mu",
+          "school": "University of Minnesota",
+          "status": "active",
+          "abbrev": "UMinn"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Wilberforce University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "University of Pittsburgh",
+          "status": "active",
+          "abbrev": "Pitt"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Case Western Reserve University",
+          "status": "active",
+          "abbrev": "CWRU"
+        },
+        {
+          "chapter": "Tau",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "University of Kansas",
+          "status": "active",
+          "abbrev": "KU"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Ohio University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Meharry Medical College",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "University of Pennsylvania",
+          "status": "active",
+          "abbrev": "Penn"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "University of Cincinnati",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Talladega College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Brown University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "University of Southern California",
+          "status": "active",
+          "abbrev": "USC"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Northwestern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Johnson C. Smith University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Lincoln University (MO)",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "University of Nebraska-Lincoln",
+          "status": "active",
+          "abbrev": "UNL"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "Southern Illinois University Carbondale",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Shaw University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "Philander Smith College",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Morris Brown College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "Texas College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Saint Louis University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Allen University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of Arkansas at Pine Bluff",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "University of Dayton",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "Miles College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "Livingstone College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "Pennsylvania State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "Benedict College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "Tougaloo College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "St. Augustine's University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "Claflin University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "Alabama A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "University at Buffalo",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Zeta",
+          "school": "Syracuse University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Eta",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Theta",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Iota",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Delta Kappa",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Mu",
+          "school": "Wichita State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Nu",
+          "school": "University of Maryland Eastern Shore",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Xi",
+          "school": "Central State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Pi",
+          "school": "Cheyney University of Pennsylvania",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Rho",
+          "school": "University of Missouri-Kansas City",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Sigma",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Upsilon",
+          "school": "Miami University",
+          "status": "active",
+          "abbrev": "Miami (OH)"
+        },
+        {
+          "chapter": "Delta Phi",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Chi",
+          "school": "Brooklyn College",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Psi",
+          "school": "Florida Memorial University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Huston-Tillotson University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Alpha",
+          "school": "University of Toledo",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Beta",
+          "school": "California State University, Fresno",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Delta",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Epsilon Epsilon",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Epsilon Zeta",
+          "school": "Fayetteville State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Eta",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Theta",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        },
+        {
+          "chapter": "Epsilon Iota",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Epsilon Mu",
+          "school": "San Jose State University",
+          "status": "active",
+          "abbrev": "SJSU"
+        },
+        {
+          "chapter": "Epsilon Nu",
+          "school": "Stillman College",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Xi",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Pi",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Rho",
+          "school": "Lamar University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Sigma",
+          "school": "University of Texas at San Antonio",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Tau",
+          "school": "University of Wisconsin-Milwaukee",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Upsilon",
+          "school": "Southern University at New Orleans",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Phi",
+          "school": "Northern Illinois University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon Chi",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Epsilon Psi",
+          "school": "Missouri University of Science and Technology",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Alpha",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Zeta Beta",
+          "school": "Ferris State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Gamma",
+          "school": "University of Central Missouri",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Delta",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Zeta Zeta",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Zeta Eta",
+          "school": "New York Institute of Technology",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Iota",
+          "school": "University of Wisconsin-Whitewater",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Mu",
+          "school": "Georgia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Nu",
+          "school": "Eastern Illinois University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Xi",
+          "school": "University of Louisiana at Lafayette",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Omicron",
+          "school": "Murray State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Pi",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Zeta Rho",
+          "school": "Indiana State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Sigma",
+          "school": "University of Central Oklahoma",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Phi",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Chi",
+          "school": "University of Texas at Arlington",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta Psi",
+          "school": "West Chester University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta Alpha",
+          "school": "Paine College",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta Gamma",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta Delta",
+          "school": "University of Miami",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta Epsilon",
+          "school": "University of North Texas",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta Zeta",
+          "school": "Bowie State University",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "kappa_alpha_psi",
+      "full_name": "Kappa Alpha Psi",
+      "letters": "ΚΑΨ",
+      "active_chapters": 115,
+      "note": "Collegiate chapters only; alumni chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Beta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Wilberforce University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Northwestern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Theta",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Iota",
+          "school": "University of Pennsylvania",
+          "status": "active",
+          "abbrev": "Penn"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Meharry Medical College",
+          "status": "active"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "University of Minnesota",
+          "status": "active",
+          "abbrev": "UMinn"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "University of Nebraska-Lincoln",
+          "status": "active",
+          "abbrev": "UNL"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Johnson C. Smith University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "University of Kansas",
+          "status": "active",
+          "abbrev": "KU"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "University of Pittsburgh",
+          "status": "active",
+          "abbrev": "Pitt"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Lincoln University (MO)",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "Shaw University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Morgan State University (graduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "Indiana State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "Southern Illinois University Carbondale",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "University of Cincinnati",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "University of Dayton",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Florida Memorial University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Miami",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Stetson University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "University of Mississippi",
+          "status": "active",
+          "abbrev": "Ole Miss"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Gamma Omicron",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Gamma Tau",
+          "school": "Louisiana State University (graduate)",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Gamma Chi",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Delta Zeta",
+          "school": "University of Connecticut",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Eta",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Theta",
+          "school": "Northeastern University",
+          "status": "active",
+          "abbrev": "Northeastern"
+        },
+        {
+          "chapter": "Delta Iota",
+          "school": "Boston University",
+          "status": "active",
+          "abbrev": "BU"
+        },
+        {
+          "chapter": "Delta Kappa",
+          "school": "Tufts University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Lambda",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Delta Mu",
+          "school": "Syracuse University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Nu",
+          "school": "Columbia University",
+          "status": "active",
+          "abbrev": "Columbia"
+        },
+        {
+          "chapter": "Delta Xi",
+          "school": "Harvard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Omicron",
+          "school": "University of Massachusetts Amherst",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Pi",
+          "school": "Michigan State University (graduate)",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Delta Rho",
+          "school": "Purdue University (graduate)",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Delta Sigma",
+          "school": "Ohio State University (graduate)",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Delta Tau",
+          "school": "University of Michigan (graduate)",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Delta Upsilon",
+          "school": "Indiana University (graduate)",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Delta Phi",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Delta Chi",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Delta Psi",
+          "school": "University of Southern California",
+          "status": "active",
+          "abbrev": "USC"
+        }
+      ]
+    },
+    {
+      "id": "delta_sigma_theta",
+      "full_name": "Delta Sigma Theta",
+      "letters": "ΔΣΘ",
+      "active_chapters": 107,
+      "note": "Collegiate chapters only; alumnae chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Wilberforce University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "University of Pennsylvania",
+          "status": "active",
+          "abbrev": "Penn"
+        },
+        {
+          "chapter": "Delta",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "University of Minnesota",
+          "status": "active",
+          "abbrev": "UMinn"
+        },
+        {
+          "chapter": "Eta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Theta",
+          "school": "Howard University (pharmacy)",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Northwestern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "University of Nebraska-Lincoln",
+          "status": "active",
+          "abbrev": "UNL"
+        },
+        {
+          "chapter": "Mu",
+          "school": "University of Kansas",
+          "status": "active",
+          "abbrev": "KU"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Case Western Reserve University",
+          "status": "active",
+          "abbrev": "CWRU"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Bennett College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Tougaloo College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Harvard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Indiana State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "University of Illinois (Chicago)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "University of Miami",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Omicron",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Ohio University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "University of Cincinnati",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Tau",
+          "school": "University of Dayton",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "Ball State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "Boston University",
+          "status": "active",
+          "abbrev": "BU"
+        },
+        {
+          "chapter": "Gamma Chi",
+          "school": "Northeastern University",
+          "status": "active",
+          "abbrev": "Northeastern"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "University of Massachusetts Amherst",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "San Jose State University",
+          "status": "active",
+          "abbrev": "SJSU"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "University of Arizona",
+          "status": "active",
+          "abbrev": "UA"
+        },
+        {
+          "chapter": "Delta Zeta",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Delta Eta",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Delta Theta",
+          "school": "Spelman College",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Iota",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Delta Kappa",
+          "school": "University of Mississippi",
+          "status": "active",
+          "abbrev": "Ole Miss"
+        },
+        {
+          "chapter": "Delta Lambda",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Delta Mu",
+          "school": "Columbia University",
+          "status": "active",
+          "abbrev": "Columbia"
+        },
+        {
+          "chapter": "Delta Nu",
+          "school": "Vanderbilt University",
+          "status": "active",
+          "abbrev": "Vanderbilt"
+        },
+        {
+          "chapter": "Delta Xi",
+          "school": "Emory University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta Omicron",
+          "school": "University of Louisville",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "phi_beta_sigma",
+      "full_name": "Phi Beta Sigma",
+      "letters": "ΦΒΣ",
+      "active_chapters": 98,
+      "note": "Collegiate chapters only; sigma-alumni chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Northwestern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Theta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Mu",
+          "school": "University of Pittsburgh",
+          "status": "active",
+          "abbrev": "Pitt"
+        },
+        {
+          "chapter": "Nu",
+          "school": "University of Minnesota",
+          "status": "active",
+          "abbrev": "UMinn"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Coppin State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Shaw University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "Southern Illinois University Carbondale",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "Ohio University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Ball State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "Central State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Indiana State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "North Carolina Central University (graduate)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Gamma Omicron",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Gamma Tau",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Gamma Chi",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "Iowa State University (graduate)",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Delta Zeta",
+          "school": "University of Mississippi",
+          "status": "active",
+          "abbrev": "Ole Miss"
+        }
+      ]
+    },
+    {
+      "id": "omega_psi_phi",
+      "full_name": "Omega Psi Phi",
+      "letters": "ΩΨΦ",
+      "active_chapters": 97,
+      "note": "Collegiate chapters only; district/alumni chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "University of Pittsburgh",
+          "status": "active",
+          "abbrev": "Pitt"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "University of Pennsylvania",
+          "status": "active",
+          "abbrev": "Penn"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Columbia University",
+          "status": "active",
+          "abbrev": "Columbia"
+        },
+        {
+          "chapter": "Theta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Iota",
+          "school": "University of Kansas",
+          "status": "active",
+          "abbrev": "KU"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "University of Nebraska-Lincoln",
+          "status": "active",
+          "abbrev": "UNL"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "Virginia Union University",
+          "status": "active"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Howard University (dentistry)",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Claflin University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Stillman College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Benedict College",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "Southern Illinois University Carbondale",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "University of Miami",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "University of Mississippi",
+          "status": "active",
+          "abbrev": "Ole Miss"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Gamma Omicron",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Gamma Pi",
+          "school": "University of Georgia (graduate)",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Gamma Rho",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Gamma Sigma",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Gamma Tau",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Gamma Upsilon",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Gamma Phi",
+          "school": "California State University, Los Angeles",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Chi",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Gamma Psi",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Delta Alpha",
+          "school": "San Jose State University",
+          "status": "active",
+          "abbrev": "SJSU"
+        },
+        {
+          "chapter": "Delta Beta",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Delta Gamma",
+          "school": "University of Arizona",
+          "status": "active",
+          "abbrev": "UA"
+        },
+        {
+          "chapter": "Delta Delta",
+          "school": "Boston University",
+          "status": "active",
+          "abbrev": "BU"
+        },
+        {
+          "chapter": "Delta Epsilon",
+          "school": "Northeastern University",
+          "status": "active",
+          "abbrev": "Northeastern"
+        }
+      ]
+    },
+    {
+      "id": "zeta_phi_beta",
+      "full_name": "Zeta Phi Beta",
+      "letters": "ΖΦΒ",
+      "active_chapters": 83,
+      "note": "Collegiate chapters only; graduate chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Morris Brown College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Wiley College",
+          "status": "active"
+        },
+        {
+          "chapter": "Theta",
+          "school": "West Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Xavier University of Louisiana",
+          "status": "active"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "Dillard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "Coppin State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "Pennsylvania State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "Penn State University (graduate)",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Gamma Nu",
+          "school": "University of Mississippi",
+          "status": "active",
+          "abbrev": "Ole Miss"
+        },
+        {
+          "chapter": "Gamma Xi",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        }
+      ]
+    },
+    {
+      "id": "sigma_gamma_rho",
+      "full_name": "Sigma Gamma Rho",
+      "letters": "ΣΓΡ",
+      "active_chapters": 81,
+      "note": "Collegiate chapters only; Rho-designated graduate chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Butler University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "University of Indiana (Indiana State area)",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "Wilberforce University",
+          "status": "active"
+        },
+        {
+          "chapter": "Delta",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "University of Cincinnati",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Rust College",
+          "status": "active"
+        },
+        {
+          "chapter": "Theta",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Fisk University",
+          "status": "active"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Langston University",
+          "status": "active"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Albany State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Kentucky State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "Mississippi Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Kent State University",
+          "status": "active",
+          "abbrev": "Kent State"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "University of Iowa",
+          "status": "active",
+          "abbrev": "Iowa"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "University of Illinois (Chicago)",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Eastern Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Oklahoma State University-Stillwater",
+          "status": "active",
+          "abbrev": "Oklahoma State"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "University of Arkansas",
+          "status": "active",
+          "abbrev": "Arkansas"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Theta",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Gamma Iota",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Gamma Kappa",
+          "school": "Ball State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Lambda",
+          "school": "Western Michigan University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Mu",
+          "school": "Bowling Green State University",
+          "status": "active",
+          "abbrev": "BGSU"
+        }
+      ]
+    },
+    {
+      "id": "iota_phi_theta",
+      "full_name": "Iota Phi Theta",
+      "letters": "ΙΦΘ",
+      "active_chapters": 77,
+      "note": "Collegiate chapters only; graduate chapters not included",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Morgan State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Coppin State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma",
+          "school": "University of Maryland, College Park",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Delta",
+          "school": "Bowie State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "University of Baltimore",
+          "status": "active"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "Delaware State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Eta",
+          "school": "Virginia State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Theta",
+          "school": "Howard University",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota",
+          "school": "Lincoln University (PA)",
+          "status": "active"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Temple University",
+          "status": "active"
+        },
+        {
+          "chapter": "Lambda",
+          "school": "Hampton University",
+          "status": "active"
+        },
+        {
+          "chapter": "Mu",
+          "school": "Norfolk State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "Livingstone College",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi",
+          "school": "North Carolina A&T State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron",
+          "school": "Winston-Salem State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Pi",
+          "school": "Fayetteville State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho",
+          "school": "North Carolina Central University",
+          "status": "active"
+        },
+        {
+          "chapter": "Sigma",
+          "school": "Shaw University",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau",
+          "school": "Tuskegee University",
+          "status": "active"
+        },
+        {
+          "chapter": "Upsilon",
+          "school": "Florida A&M University",
+          "status": "active",
+          "abbrev": "FAMU"
+        },
+        {
+          "chapter": "Phi",
+          "school": "Jackson State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Chi",
+          "school": "Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi",
+          "school": "Texas Southern University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Alpha",
+          "school": "Grambling State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Beta",
+          "school": "Prairie View A&M University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Gamma",
+          "school": "Alabama State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Delta",
+          "school": "Alcorn State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Epsilon",
+          "school": "Tennessee State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Zeta",
+          "school": "Clark Atlanta University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Eta",
+          "school": "Morehouse College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Theta",
+          "school": "Lane College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Iota",
+          "school": "Bethune-Cookman University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Kappa",
+          "school": "Fort Valley State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Lambda",
+          "school": "Savannah State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Mu",
+          "school": "South Carolina State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Nu",
+          "school": "LeMoyne-Owen College",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Xi",
+          "school": "Ohio State University",
+          "status": "active",
+          "abbrev": "OSU"
+        },
+        {
+          "chapter": "Alpha Omicron",
+          "school": "Indiana University Bloomington",
+          "status": "active",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Alpha Pi",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Alpha Rho",
+          "school": "Wayne State University",
+          "status": "active"
+        },
+        {
+          "chapter": "Alpha Sigma",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Alpha Tau",
+          "school": "Purdue University",
+          "status": "active",
+          "abbrev": "Purdue"
+        },
+        {
+          "chapter": "Alpha Upsilon",
+          "school": "University of Illinois Urbana-Champaign",
+          "status": "active",
+          "abbrev": "UIUC"
+        },
+        {
+          "chapter": "Alpha Phi",
+          "school": "University of Georgia",
+          "status": "active",
+          "abbrev": "UGA"
+        },
+        {
+          "chapter": "Alpha Chi",
+          "school": "University of Florida",
+          "status": "active",
+          "abbrev": "UF"
+        },
+        {
+          "chapter": "Alpha Psi",
+          "school": "Florida State University",
+          "status": "active",
+          "abbrev": "FSU"
+        },
+        {
+          "chapter": "Beta Alpha",
+          "school": "University of Alabama",
+          "status": "active",
+          "abbrev": "Alabama"
+        },
+        {
+          "chapter": "Beta Beta",
+          "school": "Auburn University",
+          "status": "active",
+          "abbrev": "Auburn"
+        },
+        {
+          "chapter": "Beta Gamma",
+          "school": "University of Tennessee",
+          "status": "active",
+          "abbrev": "UT"
+        },
+        {
+          "chapter": "Beta Delta",
+          "school": "University of Kentucky",
+          "status": "active",
+          "abbrev": "UK"
+        },
+        {
+          "chapter": "Beta Epsilon",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Beta Zeta",
+          "school": "Penn State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Beta Eta",
+          "school": "University of Maryland (graduate)",
+          "status": "active",
+          "abbrev": "UMD"
+        },
+        {
+          "chapter": "Beta Theta",
+          "school": "University of Texas at Austin",
+          "status": "active",
+          "abbrev": "UT Austin"
+        },
+        {
+          "chapter": "Beta Iota",
+          "school": "Texas A&M University",
+          "status": "active",
+          "abbrev": "TAMU"
+        },
+        {
+          "chapter": "Beta Kappa",
+          "school": "University of Oklahoma",
+          "status": "active",
+          "abbrev": "OU"
+        },
+        {
+          "chapter": "Beta Lambda",
+          "school": "Louisiana State University",
+          "status": "active",
+          "abbrev": "LSU"
+        },
+        {
+          "chapter": "Beta Mu",
+          "school": "University of Missouri",
+          "status": "active",
+          "abbrev": "Mizzou"
+        },
+        {
+          "chapter": "Beta Nu",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Beta Xi",
+          "school": "Kansas State University",
+          "status": "active",
+          "abbrev": "K-State"
+        },
+        {
+          "chapter": "Beta Omicron",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Beta Pi",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Beta Rho",
+          "school": "Georgia Tech",
+          "status": "active",
+          "abbrev": "Georgia Tech"
+        },
+        {
+          "chapter": "Beta Sigma",
+          "school": "Mississippi State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Beta Tau",
+          "school": "Duke University",
+          "status": "active",
+          "abbrev": "Duke"
+        },
+        {
+          "chapter": "Beta Upsilon",
+          "school": "Cornell University",
+          "status": "active",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Beta Phi",
+          "school": "Yale University",
+          "status": "active"
+        },
+        {
+          "chapter": "Beta Chi",
+          "school": "Rutgers University-New Brunswick",
+          "status": "active",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Beta Psi",
+          "school": "North Carolina State University",
+          "status": "active",
+          "abbrev": "NC State"
+        },
+        {
+          "chapter": "Gamma Alpha",
+          "school": "University of North Carolina at Chapel Hill",
+          "status": "active",
+          "abbrev": "UNC"
+        },
+        {
+          "chapter": "Gamma Beta",
+          "school": "Clemson University",
+          "status": "active",
+          "abbrev": "Clemson"
+        },
+        {
+          "chapter": "Gamma Gamma",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Delta",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Gamma Epsilon",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Gamma Zeta",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Gamma Eta",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "University of South Alabama",
+          "status": "active"
+        }
+      ]
+    },
+    {
+      "id": "theta_delta_chi",
+      "full_name": "Theta Delta Chi",
+      "letters": "ΘΔΧ",
+      "active_chapters": 27,
+      "note": "TDX calls its campus units 'charges' rather than 'chapters'",
+      "chapters": [
+        {
+          "chapter": "Alpha",
+          "school": "Union College",
+          "status": "active"
+        },
+        {
+          "chapter": "Epsilon",
+          "school": "College of William & Mary",
+          "status": "active"
+        },
+        {
+          "chapter": "Nu",
+          "school": "University of Virginia",
+          "status": "active",
+          "abbrev": "UVA"
+        },
+        {
+          "chapter": "Xi",
+          "school": "Hobart and William Smith Colleges",
+          "status": "active"
+        },
+        {
+          "chapter": "Rho Proteron",
+          "school": "University of South Carolina",
+          "status": "active"
+        },
+        {
+          "chapter": "Omicron Deuteron",
+          "school": "Dartmouth College",
+          "status": "active",
+          "abbrev": "Dartmouth"
+        },
+        {
+          "chapter": "Upsilon Deuteron",
+          "school": "Wabash College",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Deuteron",
+          "school": "University of Michigan",
+          "status": "active",
+          "abbrev": "UMich"
+        },
+        {
+          "chapter": "Theta Deuteron",
+          "school": "Massachusetts Institute of Technology",
+          "status": "active",
+          "abbrev": "MIT"
+        },
+        {
+          "chapter": "Sigma Deuteron",
+          "school": "University of Wisconsin-Madison",
+          "status": "active",
+          "abbrev": "UW-Madison"
+        },
+        {
+          "chapter": "Delta Deuteron",
+          "school": "University of California, Berkeley",
+          "status": "active",
+          "abbrev": "UC Berkeley"
+        },
+        {
+          "chapter": "Lambda Deuteron",
+          "school": "University of Toronto",
+          "status": "active"
+        },
+        {
+          "chapter": "Xi Deuteron",
+          "school": "University of Washington",
+          "status": "active",
+          "abbrev": "UW"
+        },
+        {
+          "chapter": "Beta Deuteron",
+          "school": "Iowa State University",
+          "status": "active",
+          "abbrev": "Iowa State"
+        },
+        {
+          "chapter": "Psi Deuteron",
+          "school": "University of California, Los Angeles",
+          "status": "active",
+          "abbrev": "UCLA"
+        },
+        {
+          "chapter": "Sigma Triton",
+          "school": "Pennsylvania State University",
+          "status": "active",
+          "abbrev": "Penn State"
+        },
+        {
+          "chapter": "Epsilon Triton",
+          "school": "Arizona State University",
+          "status": "active",
+          "abbrev": "ASU"
+        },
+        {
+          "chapter": "Omicron Triton",
+          "school": "University of Rhode Island",
+          "status": "active"
+        },
+        {
+          "chapter": "Gamma Triton",
+          "school": "Michigan State University",
+          "status": "active",
+          "abbrev": "MSU"
+        },
+        {
+          "chapter": "Nu Triton",
+          "school": "Virginia Tech",
+          "status": "active",
+          "abbrev": "Virginia Tech"
+        },
+        {
+          "chapter": "Rho Triton",
+          "school": "Virginia Commonwealth University",
+          "status": "active",
+          "abbrev": "VCU"
+        },
+        {
+          "chapter": "Xi Triton",
+          "school": "State University of New York at Albany",
+          "status": "active"
+        },
+        {
+          "chapter": "Mu Triton",
+          "school": "University of North Carolina at Greensboro",
+          "status": "active"
+        },
+        {
+          "chapter": "Iota Triton",
+          "school": "University of Massachusetts Dartmouth",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau Triton",
+          "school": "Marist College",
+          "status": "active"
+        },
+        {
+          "chapter": "Tau Tetraton",
+          "school": "Johnson & Wales University",
+          "status": "active"
+        },
+        {
+          "chapter": "Psi Tetraton",
+          "school": "University of Arizona",
+          "status": "active",
+          "abbrev": "UA"
+        },
+        {
+          "chapter": "Kappa",
+          "school": "Tufts University",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Zeta",
+          "school": "Brown University",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Beta",
+          "school": "Cornell University",
+          "status": "recently_inactive",
+          "abbrev": "Cornell"
+        },
+        {
+          "chapter": "Chi",
+          "school": "University of Rochester",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Delta Triton",
+          "school": "Northeastern University",
+          "status": "recently_inactive",
+          "abbrev": "Northeastern"
+        },
+        {
+          "chapter": "Eta Triton",
+          "school": "Nova Southeastern University",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Chi Triton",
+          "school": "Merrimack College",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Lambda Triton",
+          "school": "Rutgers University",
+          "status": "recently_inactive",
+          "abbrev": "Rutgers"
+        },
+        {
+          "chapter": "Upsilon Triton",
+          "school": "Indiana University Bloomington",
+          "status": "recently_inactive",
+          "abbrev": "IU"
+        },
+        {
+          "chapter": "Psi Triton",
+          "school": "University of California, Santa Barbara",
+          "status": "recently_inactive",
+          "abbrev": "UCSB"
+        },
+        {
+          "chapter": "Kappa Triton",
+          "school": "Northwestern University",
+          "status": "recently_inactive"
+        },
+        {
+          "chapter": "Nu Deuteron",
+          "school": "Lehigh University",
+          "status": "recently_inactive",
+          "abbrev": "Lehigh"
+        },
+        {
+          "chapter": "Beta Triton",
+          "school": "Lake Forest College",
+          "status": "recently_inactive"
+        }
+      ]
+    }
+  ]
+}
