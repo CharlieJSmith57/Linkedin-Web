@@ -104,7 +104,8 @@ def parse_email_date(s: str) -> datetime | None:
 def _is_linkedin_dl_link(url: str) -> bool:
     u = url.lower()
     return "linkedin.com" in u and any(
-        k in u for k in ("ambry", "checkpoint", "download", "archive")
+        k in u for k in ("ambry", "checkpoint", "download", "archive",
+                         "psettings/member-data", "comm/psettings")
     )
 
 
